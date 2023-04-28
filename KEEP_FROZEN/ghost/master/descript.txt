@@ -1,0 +1,16 @@
+charset,UTF-8
+
+name,KEEP FROZEN
+type,ghost
+
+shiori,yaya.dll
+
+craftman,ChocolateStarn Coffin-Heavyfoot & ScrapShred Drywallpatcher-Biker
+craftmanw,ChocolateStarn Coffin-Heavyfoot & ScrapShred Drywallpatcher-Biker
+//craftmanurl,
+
+sakura.name,Ice Cube
+
+sstp.allowunspecifiedsend,0
+
+//sakura.menu,hidden

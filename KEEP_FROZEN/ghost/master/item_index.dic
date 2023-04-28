@@ -1,0 +1,13 @@
+ItemDisplayInfo : array
+{
+	//Category,Item,Character for \p[] tag,Surface #
+	
+	"" //← Intentionally blank
+	"Misc,Skull,1,100"
+	"Marbles,Sea Turtle,2,101"
+	"Marbles,Sea Purple,3,102"
+	"Marbles,Unicorn,4,103"
+	
+	"Fruit,Cherries,5,110"
+	"Fruit,Banana,6,111"
+}

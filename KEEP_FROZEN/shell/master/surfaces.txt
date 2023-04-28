@@ -1,0 +1,143 @@
+descript
+{
+	version,1
+}
+
+surface0
+{	
+	animation1000.interval,runonce
+	animation1000.pattern0,overlay,1000,0,0,0
+	
+	animation1100.interval,bind + runonce
+	animation1100.pattern0,parallelstop,(1102,1103,1104)
+	animation1100.pattern1,overlay,1100,0,0,0
+	
+	animation1101.interval,bind + talk,4
+	animation1101.pattern0,alternativestart,(1102,1103,1104)
+
+	animation1102.interval,never
+	animation1102.pattern0,stop,1100
+	animation1102.pattern1,overlay,1101,0,0,0
+	animation1102.pattern2,overlay,1101,120,0,0
+	animation1102.pattern3,start,1100
+	animation1102.option,exclusive,(1101,1102,1103,1104)
+
+	animation1103.interval,never
+	animation1103.pattern0,stop,1100
+	animation1103.pattern1,overlay,1102,0,0,0
+	animation1103.pattern2,overlay,1102,120,0,0
+	animation1103.pattern3,start,1100
+	animation1103.option,exclusive,(1101,1102,1102,1104)
+
+	animation1104.interval,never
+	animation1104.pattern0,stop,1100
+	animation1104.pattern1,overlay,1101,0,0,0
+	animation1104.pattern2,overlay,1102,120,0,0
+	animation1104.pattern3,overlay,1102,120,0,0
+	animation1104.pattern4,start,1100
+	animation1104.option,exclusive,(1101,1102,1102,1103)
+}
+
+surface1
+{
+	animation1000.interval,runonce
+	animation1000.pattern0,overlay,1001,0,0,0
+	
+	animation1001.interval,runonce
+	animation1001.pattern0,overlay,1010,0,0,0
+	animation1001.option,background
+	
+	animation1100.interval,bind + runonce
+	animation1100.pattern0,parallelstop,(1102,1103,1104)
+	animation1100.pattern1,overlay,1110,0,0,0
+	
+	animation1101.interval,bind + talk,4
+	animation1101.pattern0,alternativestart,(1102,1103,1104)
+
+	animation1102.interval,never
+	animation1102.pattern0,stop,1100
+	animation1102.pattern1,overlay,1111,0,0,0
+	animation1102.pattern2,overlay,1111,120,0,0
+	animation1102.pattern3,start,1100
+	animation1102.option,exclusive,(1101,1102,1103,1104)
+
+	animation1103.interval,never
+	animation1103.pattern0,stop,1100
+	animation1103.pattern1,overlay,1112,0,0,0
+	animation1103.pattern2,overlay,1112,120,0,0
+	animation1103.pattern3,start,1100
+	animation1103.option,exclusive,(1101,1102,1102,1104)
+
+	animation1104.interval,never
+	animation1104.pattern0,stop,1100
+	animation1104.pattern1,overlay,1111,0,0,0
+	animation1104.pattern2,overlay,1112,120,0,0
+	animation1104.pattern3,overlay,1112,120,0,0
+	animation1104.pattern4,start,1100
+	animation1104.option,exclusive,(1101,1102,1102,1103)
+}
+
+surface2
+{
+	animation1000.interval,runonce
+	animation1000.pattern0,overlay,1002,0,0,0
+	
+	animation1001.interval,runonce
+	animation1001.pattern0,overlay,1011,0,0,0
+	animation1001.option,background
+	
+	animation1100.interval,bind + runonce
+	animation1100.pattern0,parallelstop,(1102,1103,1104)
+	animation1100.pattern1,overlay,1120,0,0,0
+	
+	animation1101.interval,bind + talk,4
+	animation1101.pattern0,alternativestart,(1102,1103,1104)
+
+	animation1102.interval,never
+	animation1102.pattern0,stop,1100
+	animation1102.pattern1,overlay,1121,0,0,0
+	animation1102.pattern2,overlay,1121,120,0,0
+	animation1102.pattern3,start,1100
+	animation1102.option,exclusive,(1101,1102,1103,1104)
+
+	animation1103.interval,never
+	animation1103.pattern0,stop,1100
+	animation1103.pattern1,overlay,1122,0,0,0
+	animation1103.pattern2,overlay,1122,120,0,0
+	animation1103.pattern3,start,1100
+	animation1103.option,exclusive,(1101,1102,1102,1104)
+
+	animation1104.interval,never
+	animation1104.pattern0,stop,1100
+	animation1104.pattern1,overlay,1121,0,0,0
+	animation1104.pattern2,overlay,1122,120,0,0
+	animation1104.pattern3,overlay,1122,120,0,0
+	animation1104.pattern4,start,1100
+	animation1104.option,exclusive,(1101,1102,1102,1103)
+}
+
+surface3
+{
+	element0,overlay,surface1012.png,0,0
+}
+
+surface.append0-3
+{
+	animation100.interval,bind
+	animation100.pattern0,overlay,100,0,0,0
+	
+	animation101.interval,bind
+	animation101.pattern0,overlay,101,0,0,0
+	
+	animation102.interval,bind
+	animation102.pattern0,overlay,102,0,0,0
+	
+	animation103.interval,bind
+	animation103.pattern0,overlay,103,0,0,0
+	
+	animation110.interval,bind
+	animation110.pattern0,overlay,110,0,0,0
+	
+	animation111.interval,bind
+	animation111.pattern0,overlay,111,0,0,0
+}

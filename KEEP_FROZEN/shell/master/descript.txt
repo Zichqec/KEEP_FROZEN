@@ -1,0 +1,22 @@
+charset,UTF-8
+type,shell
+
+name,Standard Cube
+craftman,ChocolateStarn Coffin-Heavyfoot & ScrapShred Drywallpatcher-Biker
+craftmanw,ChocolateStarn Coffin-Heavyfoot & ScrapShred Drywallpatcher-Biker
+//craftmanurl,
+
+seriko.alignmenttodesktop,free
+seriko.use_self_alpha,1
+
+sakura.bindgroup1100.name,Face,Toggle
+sakura.bindgroup1100.addid,1101
+
+sakura.bindgroup100.name,Object,Skull
+sakura.bindgroup101.name,Object,Sea Turtle
+sakura.bindgroup102.name,Object,Sea Purple
+sakura.bindgroup103.name,Object,Unicorn
+sakura.bindgroup110.name,Object,Cherries
+sakura.bindgroup111.name,Object,Banana
+
+sakura.menuitem0,1100
