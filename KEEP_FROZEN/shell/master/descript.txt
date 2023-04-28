@@ -18,5 +18,8 @@ sakura.bindgroup102.name,Object,Sea Purple
 sakura.bindgroup103.name,Object,Unicorn
 sakura.bindgroup110.name,Object,Cherries
 sakura.bindgroup111.name,Object,Banana
+sakura.bindgroup112.name,Object,Mushroom - Red
+sakura.bindgroup113.name,Object,Mushroom - Purple
+sakura.bindgroup114.name,Object,Mushroom - Brown
 
 sakura.menuitem0,1100

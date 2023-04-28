@@ -10,4 +10,7 @@ ItemDisplayInfo : array
 	
 	"Fruit,Cherries,5,110"
 	"Fruit,Banana,6,111"
+	"Fruit,Mushroom - Red,7,112"
+	"Fruit,Mushroom - Purple,8,113"
+	"Fruit,Mushroom - Brown,9,114"
 }

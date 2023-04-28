@@ -140,4 +140,13 @@ surface.append0-3
 	
 	animation111.interval,bind
 	animation111.pattern0,overlay,111,0,0,0
+	
+	animation112.interval,bind
+	animation112.pattern0,overlay,112,0,0,0
+	
+	animation113.interval,bind
+	animation113.pattern0,overlay,113,0,0,0
+	
+	animation114.interval,bind
+	animation114.pattern0,overlay,114,0,0,0
 }
