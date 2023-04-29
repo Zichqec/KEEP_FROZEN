@@ -135,6 +135,27 @@ surface.append0-3
 	animation103.interval,bind
 	animation103.pattern0,overlay,103,0,0,0
 	
+	animation104.interval,bind
+	animation104.pattern0,overlay,104,0,0,0
+	
+	animation105.interval,bind
+	animation105.pattern0,overlay,105,0,0,0
+	
+	animation10500.interval,bind + always
+	animation10500.pattern0,overlay,10500,0,0,0
+	animation10500.pattern1,overlay,10501,90-120,0,0
+	animation10500.pattern2,overlay,10502,90-120,0,0
+	animation10500.pattern3,overlay,10503,90-120,0,0
+	animation10500.pattern4,overlay,10504,90-120,0,0
+	animation10500.pattern5,overlay,10503,90-120,0,0
+	animation10500.pattern6,overlay,10502,90-120,0,0
+	animation10500.pattern7,overlay,10501,90-120,0,0
+	
+	animation10501.interval,bind + random,6
+	animation10501.pattern0,replace,10505,0,145,81
+	animation10501.pattern1,replace,10506,75,145,81
+	animation10501.pattern2,overlay,-1,75,0,0
+	
 	animation110.interval,bind
 	animation110.pattern0,overlay,110,0,0,0
 	
@@ -149,4 +170,22 @@ surface.append0-3
 	
 	animation114.interval,bind
 	animation114.pattern0,overlay,114,0,0,0
+}
+
+surface105
+{
+	animation10500.interval,always
+	animation10500.pattern0,overlay,10500,0,0,0
+	animation10500.pattern1,overlay,10501,90-120,0,0
+	animation10500.pattern2,overlay,10502,90-120,0,0
+	animation10500.pattern3,overlay,10503,90-120,0,0
+	animation10500.pattern4,overlay,10504,90-120,0,0
+	animation10500.pattern5,overlay,10503,90-120,0,0
+	animation10500.pattern6,overlay,10502,90-120,0,0
+	animation10500.pattern7,overlay,10501,90-120,0,0
+	
+	animation10501.interval,random,6
+	animation10501.pattern0,replace,10505,0,145,81
+	animation10501.pattern1,replace,10506,75,145,81
+	animation10501.pattern2,overlay,-1,75,0,0
 }

@@ -1,0 +1,48 @@
+//Take minutes and turn it into an hours:minutes display
+FormatTime
+{
+	_mins = _argv[0] / 60
+	_hours = _mins / 60
+	_minutes = TOSTR(_mins % 60)
+	
+	if STRLEN(_minutes) < 2; _minutes = "0" + _minutes
+	
+	"%(_hours):%(_minutes)"
+}
+
+SumArray
+{
+	_sum = 0
+	foreach _argv; _num
+	{
+		_sum += _num
+	}
+	_sum
+}
+
+SaveCubeTime
+{
+	_sec = GETSECCOUNT
+	_time = _sec - cubelifestart
+	CubeLives ,= _time
+}
+
+bullet
+{
+	"\f[name,calibri]•\f[name,default]"
+}
+
+AddToCollection
+{
+	_i = _argv[0]
+	_item = ItemsCollected[_i]
+	_num = TOINT(_item[1]) + 1
+	_item[1] = TOSTR(_num)
+	ItemsCollected[_i] = _item
+}
+
+OpenBalloon
+{
+	if "balloon" _in_ var.req.value[ASEARCH("Status",var.req.key)]; 1
+	else; 0
+}

@@ -16,6 +16,11 @@ sakura.bindgroup100.name,Object,Skull
 sakura.bindgroup101.name,Object,Sea Turtle
 sakura.bindgroup102.name,Object,Sea Purple
 sakura.bindgroup103.name,Object,Unicorn
+sakura.bindgroup104.name,Object,Key
+sakura.bindgroup105.name,Object,Candle
+sakura.bindgroup105.addid,10500
+sakura.bindgroup105.addid,10501
+
 sakura.bindgroup110.name,Object,Cherries
 sakura.bindgroup111.name,Object,Banana
 sakura.bindgroup112.name,Object,Mushroom - Red

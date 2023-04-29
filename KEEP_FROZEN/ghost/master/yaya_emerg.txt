@@ -7,14 +7,7 @@ charset.extension, UTF-8
 
 dicdir, yaya_base
 
-dic, main.dic
-dic, menu.dic
-dic, utility.dic
-dic, randomtalk.dic
-dic, item_index.dic
-
 msglang,english
-
 
 //------------------------------------------------------------------------------
 //Execution log

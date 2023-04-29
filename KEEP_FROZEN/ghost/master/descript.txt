@@ -14,3 +14,5 @@ sakura.name,Ice Cube
 sstp.allowunspecifiedsend,0
 
 //sakura.menu,hidden
+
+balloon,Thaw

@@ -1,16 +1,18 @@
 ItemDisplayInfo : array
 {
-	//Category,Item,Character for \p[] tag,Surface #
+	//Category,Item,Surface #
 	
 	"" //← Intentionally blank
-	"Misc,Skull,1,100"
-	"Marbles,Sea Turtle,2,101"
-	"Marbles,Sea Purple,3,102"
-	"Marbles,Unicorn,4,103"
+	"Misc,Skull,100"
+	"Marbles,Sea Turtle,101"
+	"Marbles,Sea Purple,102"
+	"Marbles,Unicorn,103"
+	"Misc,Key,104"
+	"Misc,Candle,105"
 	
-	"Fruit,Cherries,5,110"
-	"Fruit,Banana,6,111"
-	"Fruit,Mushroom - Red,7,112"
-	"Fruit,Mushroom - Purple,8,113"
-	"Fruit,Mushroom - Brown,9,114"
+	"Fruit,Cherries,110"
+	"Fruit,Banana,111"
+	"Fruit,Mushroom - Red,112"
+	"Fruit,Mushroom - Purple,113"
+	"Fruit,Mushroom - Brown,114"
 }
