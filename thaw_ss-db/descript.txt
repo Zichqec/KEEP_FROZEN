@@ -5,9 +5,9 @@ use_input_alpha,1
 type,balloon
 name,Thaw
 
-craftman,ScrapShred Drywallpatcher-Biker
-craftmanw,ScrapShred Drywallpatcher-Biker
-craftmanurl,
+craftman,Zichqec
+craftmanw,Zichqec
+craftmanurl,https://zichqec.github.io/s-the-skeleton/
 
 
 origin.x,16
