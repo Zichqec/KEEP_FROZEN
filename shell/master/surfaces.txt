@@ -138,23 +138,12 @@ surface.append0-3
 	animation104.interval,bind
 	animation104.pattern0,overlay,104,0,0,0
 	
-	animation105.interval,bind
-	animation105.pattern0,overlay,105,0,0,0
 	
-	animation10500.interval,bind + always
-	animation10500.pattern0,overlay,10500,0,0,0
-	animation10500.pattern1,overlay,10501,90-120,0,0
-	animation10500.pattern2,overlay,10502,90-120,0,0
-	animation10500.pattern3,overlay,10503,90-120,0,0
-	animation10500.pattern4,overlay,10504,90-120,0,0
-	animation10500.pattern5,overlay,10503,90-120,0,0
-	animation10500.pattern6,overlay,10502,90-120,0,0
-	animation10500.pattern7,overlay,10501,90-120,0,0
+	animation107.interval,bind
+	animation107.pattern0,overlay,107,0,0,0
 	
-	animation10501.interval,bind + random,6
-	animation10501.pattern0,replace,10505,0,145,81
-	animation10501.pattern1,replace,10506,75,145,81
-	animation10501.pattern2,overlay,-1,75,0,0
+	animation108.interval,bind
+	animation108.pattern0,overlay,108,0,0,0
 	
 	animation110.interval,bind
 	animation110.pattern0,overlay,110,0,0,0
@@ -170,22 +159,167 @@ surface.append0-3
 	
 	animation114.interval,bind
 	animation114.pattern0,overlay,114,0,0,0
+	
+	animation115.interval,bind
+	animation115.pattern0,overlay,115,0,0,0
+	
+	animation116.interval,bind
+	animation116.pattern0,overlay,116,0,0,0
+	
+	
+	animation150.interval,bind
+	animation150.pattern0,overlay,150,0,0,0
+	
+	animation15000.interval,bind + always
+	animation15000.pattern0,overlay,15000,0,0,0
+	animation15000.pattern1,overlay,15001,90-120,0,0
+	animation15000.pattern2,overlay,15002,90-120,0,0
+	animation15000.pattern3,overlay,15003,90-120,0,0
+	animation15000.pattern4,overlay,15004,90-120,0,0
+	animation15000.pattern5,overlay,15003,90-120,0,0
+	animation15000.pattern6,overlay,15002,90-120,0,0
+	animation15000.pattern7,overlay,15001,90-120,0,0
+	
+	animation15001.interval,bind + random,6
+	animation15001.pattern0,replace,15005,0,145,81
+	animation15001.pattern1,replace,15006,75,145,81
+	animation15001.pattern2,overlay,-1,75,0,0
+	
+	animation151.interval,bind
+	animation151.pattern0,overlay,151,0,0,0
+	
+	animation15100.interval,bind + always
+	animation15100.pattern0,overlay,15000,0,0,0
+	animation15100.pattern1,overlay,15001,90-120,0,0
+	animation15100.pattern2,overlay,15002,90-120,0,0
+	animation15100.pattern3,overlay,15003,90-120,0,0
+	animation15100.pattern4,overlay,15004,90-120,0,0
+	animation15100.pattern5,overlay,15003,90-120,0,0
+	animation15100.pattern6,overlay,15002,90-120,0,0
+	animation15100.pattern7,overlay,15001,90-120,0,0
+	
+	animation15101.interval,bind + random,6
+	animation15101.pattern0,replace,15005,0,145,81
+	animation15101.pattern1,replace,15006,75,145,81
+	animation15101.pattern2,overlay,-1,75,0,0
+	
+	animation152.interval,bind
+	animation152.pattern0,overlay,152,0,0,0
+	
+	animation15200.interval,bind + always
+	animation15200.pattern0,overlay,15000,0,0,0
+	animation15200.pattern1,overlay,15001,90-120,0,0
+	animation15200.pattern2,overlay,15002,90-120,0,0
+	animation15200.pattern3,overlay,15003,90-120,0,0
+	animation15200.pattern4,overlay,15004,90-120,0,0
+	animation15200.pattern5,overlay,15003,90-120,0,0
+	animation15200.pattern6,overlay,15002,90-120,0,0
+	animation15200.pattern7,overlay,15001,90-120,0,0
+	
+	animation15201.interval,bind + random,6
+	animation15201.pattern0,replace,15005,0,145,81
+	animation15201.pattern1,replace,15006,75,145,81
+	animation15201.pattern2,overlay,-1,75,0,0
+	
+	animation153.interval,bind
+	animation153.pattern0,overlay,153,0,0,0
+	
+	animation15300.interval,bind + always
+	animation15300.pattern0,overlay,15000,0,0,0
+	animation15300.pattern1,overlay,15001,90-120,0,0
+	animation15300.pattern2,overlay,15002,90-120,0,0
+	animation15300.pattern3,overlay,15003,90-120,0,0
+	animation15300.pattern4,overlay,15004,90-120,0,0
+	animation15300.pattern5,overlay,15003,90-120,0,0
+	animation15300.pattern6,overlay,15002,90-120,0,0
+	animation15300.pattern7,overlay,15001,90-120,0,0
+	
+	animation15301.interval,bind + random,6
+	animation15301.pattern0,replace,15005,0,145,81
+	animation15301.pattern1,replace,15006,75,145,81
+	animation15301.pattern2,overlay,-1,75,0,0
+	
+	animation154.interval,bind
+	animation154.pattern0,overlay,154,0,0,0
+	
+	animation155.interval,bind
+	animation155.pattern0,overlay,155,0,0,0
+	
+	animation156.interval,bind
+	animation156.pattern0,overlay,156,0,0,0
+	
+	animation157.interval,bind
+	animation157.pattern0,overlay,157,0,0,0
 }
 
-surface105
+surface150
 {
-	animation10500.interval,always
-	animation10500.pattern0,overlay,10500,0,0,0
-	animation10500.pattern1,overlay,10501,90-120,0,0
-	animation10500.pattern2,overlay,10502,90-120,0,0
-	animation10500.pattern3,overlay,10503,90-120,0,0
-	animation10500.pattern4,overlay,10504,90-120,0,0
-	animation10500.pattern5,overlay,10503,90-120,0,0
-	animation10500.pattern6,overlay,10502,90-120,0,0
-	animation10500.pattern7,overlay,10501,90-120,0,0
+	animation15000.interval,always
+	animation15000.pattern0,overlay,15000,0,0,0
+	animation15000.pattern1,overlay,15001,90-120,0,0
+	animation15000.pattern2,overlay,15002,90-120,0,0
+	animation15000.pattern3,overlay,15003,90-120,0,0
+	animation15000.pattern4,overlay,15004,90-120,0,0
+	animation15000.pattern5,overlay,15003,90-120,0,0
+	animation15000.pattern6,overlay,15002,90-120,0,0
+	animation15000.pattern7,overlay,15001,90-120,0,0
 	
-	animation10501.interval,random,6
-	animation10501.pattern0,replace,10505,0,145,81
-	animation10501.pattern1,replace,10506,75,145,81
-	animation10501.pattern2,overlay,-1,75,0,0
+	animation15001.interval,random,6
+	animation15001.pattern0,replace,15005,0,145,81
+	animation15001.pattern1,replace,15006,75,145,81
+	animation15001.pattern2,overlay,-1,75,0,0
+}
+
+surface151
+{
+	animation15100.interval,always
+	animation15100.pattern0,overlay,15000,0,0,0
+	animation15100.pattern1,overlay,15001,90-120,0,0
+	animation15100.pattern2,overlay,15002,90-120,0,0
+	animation15100.pattern3,overlay,15003,90-120,0,0
+	animation15100.pattern4,overlay,15004,90-120,0,0
+	animation15100.pattern5,overlay,15003,90-120,0,0
+	animation15100.pattern6,overlay,15002,90-120,0,0
+	animation15100.pattern7,overlay,15001,90-120,0,0
+	
+	animation15101.interval,random,6
+	animation15101.pattern0,replace,15005,0,145,81
+	animation15101.pattern1,replace,15006,75,145,81
+	animation15101.pattern2,overlay,-1,75,0,0
+}
+
+surface152
+{
+	animation15200.interval,always
+	animation15200.pattern0,overlay,15000,0,0,0
+	animation15200.pattern1,overlay,15001,90-120,0,0
+	animation15200.pattern2,overlay,15002,90-120,0,0
+	animation15200.pattern3,overlay,15003,90-120,0,0
+	animation15200.pattern4,overlay,15004,90-120,0,0
+	animation15200.pattern5,overlay,15003,90-120,0,0
+	animation15200.pattern6,overlay,15002,90-120,0,0
+	animation15200.pattern7,overlay,15001,90-120,0,0
+	
+	animation15201.interval,random,6
+	animation15201.pattern0,replace,15005,0,145,81
+	animation15201.pattern1,replace,15006,75,145,81
+	animation15201.pattern2,overlay,-1,75,0,0
+}
+
+surface153
+{
+	animation15300.interval,always
+	animation15300.pattern0,overlay,15000,0,0,0
+	animation15300.pattern1,overlay,15001,90-120,0,0
+	animation15300.pattern2,overlay,15002,90-120,0,0
+	animation15300.pattern3,overlay,15003,90-120,0,0
+	animation15300.pattern4,overlay,15004,90-120,0,0
+	animation15300.pattern5,overlay,15003,90-120,0,0
+	animation15300.pattern6,overlay,15002,90-120,0,0
+	animation15300.pattern7,overlay,15001,90-120,0,0
+	
+	animation15301.interval,random,6
+	animation15301.pattern0,replace,15005,0,145,81
+	animation15301.pattern1,replace,15006,75,145,81
+	animation15301.pattern2,overlay,-1,75,0,0
 }

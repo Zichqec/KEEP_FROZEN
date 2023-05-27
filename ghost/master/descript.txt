@@ -16,3 +16,4 @@ sstp.allowunspecifiedsend,0
 //sakura.menu,hidden
 
 balloon,Thaw
+icon,icon.ico

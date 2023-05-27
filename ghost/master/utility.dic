@@ -46,3 +46,9 @@ OpenBalloon
 	if "balloon" _in_ var.req.value[ASEARCH("Status",var.req.key)]; 1
 	else; 0
 }
+
+br
+{
+	if SHIORI3FW.BalloonName == "Thaw"; "\n"
+	else; " "
+}

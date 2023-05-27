@@ -1,3 +1,1 @@
-A frozen balloon for a frozen ghost. Has 3 sizes and an online marker that drips.
-
-Directory name has ss-dp in it as an abbreveation of the pseudonym I used for Ghost Masquerade 5, which is what this balloon was made for!
+A frosty balloon that drips when online. Made for KEEP FROZEN.

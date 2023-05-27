@@ -8,11 +8,25 @@ ItemDisplayInfo : array
 	"Marbles,Sea Purple,102"
 	"Marbles,Unicorn,103"
 	"Misc,Key,104"
-	"Misc,Candle,105"
+	
+	"Misc,d20,107"
+	"Misc,Ice Cube,108"
 	
 	"Fruit,Cherries,110"
 	"Fruit,Banana,111"
 	"Fruit,Mushroom - Red,112"
 	"Fruit,Mushroom - Purple,113"
 	"Fruit,Mushroom - Brown,114"
+	"Fruit,Egg - Brown,115"
+	"Fruit,Egg - White,116"
+	
+	"Accessory,Candle - Red,150"
+	"Accessory,Candle - Blue,151"
+	"Accessory,Candle - Green,152"
+	"Accessory,Candle - Yellow,153"
+	
+	"Accessory,Straw - Red,154"
+	"Accessory,Straw - Blue,155"
+	"Accessory,Straw - Green,156"
+	"Accessory,Straw - Yellow,157"
 }

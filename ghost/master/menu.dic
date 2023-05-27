@@ -5,7 +5,7 @@ OnMainMenu : all
 	if meltphase == 1 || meltphase == 2
 	{
 		"Please put me in the freezer.\_q"
-		"\n\n\![*]\q[Ok,OnFreezeCube]  \![*]\q[No,cancel]\n\n[half]"
+		"\n\n\![*]\q[Ok,OnFreezeCube]  \![*]\q[No,OnRefuse]\n\n[half]"
 	}
 	else; "\_q"
 	"\![*]\__q[OnNewCube]Get a new ice cube\__q\n\n"
@@ -28,9 +28,14 @@ OnFreezeCube
 	s
 }
 
+OnRefuse
+{
+	refusals++
+}
+
 OnNewCube
 {
-	SaveCubeTime
+	if meltphase != 3; SaveCubeTime
 	meltphase = 0
 	cubelifestart = GETSECCOUNT
 	phasecountdown = GETSECCOUNT
@@ -74,7 +79,9 @@ OnStats : all
 	"Average lifespan: %(_h)%(FormatTime(_avgcube))%(_d)\n"
 	"Total lifespan: %(_h)%(FormatTime(_totalcube))%(_d)\n"
 	"Total cubes: %(_h)%(_cubenum)%(_d)\n"
-	"Items collected: %(_h)%(_itemnum)%(_d)\n\n"
+	"Items collected: %(_h)%(_itemnum)%(_d)\n"
+	if refusals > 0; "Refusals: %(_h)%(refusals)%(_d)\n"
+	"\n"
 	
 	"\![*]\q[Back,OnMainMenu]  \![*]\q[Close,cancel]"
 }
@@ -86,7 +93,7 @@ OnCollectItem
 
 OnCollectionView : all
 {
-	if reference0 == ""; reference0 = "Fruit"
+	if reference0 == ""; reference0 = "Accessory"
 	"\C\![lock,balloonrepaint]\c"
 	"\0\b[2]\_q\![set,autoscroll,disable]\*\f[align,center]Collection\n\n\f[align,left]"
 	
@@ -133,7 +140,9 @@ OnCollectionView : all
 	{
 		if _category == reference0; "\_a[OnCollectionView,%(_category)]%(_category)\_a"
 		else; "\__q[OnCollectionView,%(_category)]%(_category)\__q"
-		"  "
+		
+		if _category == "Marbles" && SHIORI3FW.BalloonName == "Thaw"; "\n"
+		else; "  "
 	}
 	"\n\n"
 	_items
@@ -145,8 +154,6 @@ OnCollectionView : all
 
 OnDisplayItem
 {
-	
-	
 	if reference1 == "remove"
 	{
 		_index = ASEARCH(reference0,DisplayedItems)
@@ -216,5 +223,5 @@ OnResetCheck : all
 {
 	"\0\b2\![set,autoscroll,disable]\_q"
 	"Warning: this will reset all of your stats AND your item collection. This cannot be undone. Do you want to reset?"
-	"\n\n\![*]\__q[OnFirstBoot]Yes, reset everything\__q    \![*]\__q[OnSettings]No, don't reset\__q"
+	"\n\n\![*]\__q[OnFirstBoot]Yes, reset everything\__q\n\n\![*]\__q[OnSettings]No, don't reset\__q"
 }

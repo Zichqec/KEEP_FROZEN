@@ -3,12 +3,13 @@ OnFirstBoot
 {
 	CubeLives = IARRAY //Time counts of all cubes over time
 	ItemsCollected = IARRAY
+	refusals = 0
 	foreach ItemMasterList; _item
 	{
 		ItemsCollected ,= "%(_item),0"
 	}
 	
-	"\0\b2KEEP FROZEN\w8\n\nSTORE AT 0°F/-18°C\w8\n\nEXCURSIONS PERMITTED TO 37°F/2.7°C\w8\n\nPRODUCT MAY LEAK OR HAVE CHANGES IN TEXTURE IF ALLOWED TO THAW"
+	"\0\s[0]\![bind,Object,,0]\![bind,Object,Sea Purple,1]" + BootText
 }
 
 OnInitialize
@@ -27,7 +28,7 @@ OnDestroy
 {
 	if reference0 != "reload"
 	{
-		SaveCubeTime
+		if meltphase != 3; SaveCubeTime
 	}
 }
 
@@ -35,12 +36,24 @@ OnBoot
 {
 	s("new")
 	--
-	"boot (to the head)"
+	BootText
 }
 
-OnClose
+BootText
 {
-	
+	"\0\s[0]\b2KEEP FROZEN\w8\n\nSTORE AT 0°F/-18°C\w8\n\nEXCURSIONS PERMITTED TO 37°F/2.7°C\w8\n\nPRODUCT MAY LEAK OR HAVE CHANGES IN TEXTURE IF ALLOWED TO THAW"
+}
+
+OnClose : all
+{
+	"\0\b2"
+	switch meltphase
+	{
+		"FREEZE FOR 2-4 HOURS AT 0°F/-18°C\w8\n\nFROZEN CUBES SHOULD BE REMOVED FROM ICE TRAY AND STORED IN A SEALED CONTAINER UNTIL USE"
+		"Freeze For 4-6 Hours At%(br)0°F/-18°C\w8\n\nFrozen Cubes Should Be Removed From Ice Tray And Stored In A Sealed Container Until Use"
+		"freeze for 8-10 hours at%(br)0°f/-18°c\w8\n\nfrozen cubes should be removed from ice tray and stored in a sealed container until use"
+	}
+	"\w8\w8\w8\-"
 }
 
 
@@ -60,7 +73,7 @@ s : all
 {
 	"\0\s[%(meltphase)]"
 	
-	for _i = 0; _i < ARRAYSIZE(SHIORI3FW.IsVisible); _i++
+	for _i = 0; _i < ARRAYSIZE(SHIORI3FW.IsVisible) || _i < ARRAYSIZE(ItemDisplayInfo); _i++ //TODO double check this all works as intended
 	{
 		_entry = ItemDisplayInfo[_i]
 		

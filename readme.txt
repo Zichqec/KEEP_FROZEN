@@ -1,17 +1,9 @@
-This template contains the bare basics for making a ghost with YAYA, and little else.
+シナリオ読了想定時間：90分
 
-This is version v1.0.1, using YAYATc571-5.
-You can check for new versions of YAYA here: https://github.com/ponapalt/yaya-shiori
-And you can check for new versions of the base files here: https://github.com/ponapalt/yaya-dic
-NOTE: Since YAYA as SHIORI now has AUTO_DATA_CONVERT off by default, this template does too. If you're not sure what that means, read up here: https://ukagakadreamteam.com/wiki/guide/aya_yaya/what_is_auto_data_convert_zichqec
+The ice cube will melt as it sits on your desktop. You can put it back in the freezer now and then to keep it solid and extend its lifespan for as long as possible, or you can let it melt to collect the items inside.
 
-Put together by Zichqec, but this is just the default files so can I really lay any claim to it? If you want to check for updates or get a clean version of the files, the repo for it is here: https://github.com/Zichqec/minimum_yaya_template
-Translations for yaya_base/config.dic provided by Ayakamtka!
+Statistics will be tracked for various data points, including the lifespan of your longest lasting cube.
 
+Items that have been collected may be displayed on the desktop as decoration.
 
-Things I included that you could exclude:
-
-• install.txt (but then the ghost wouldn't be drag-and-drop installable)
-• readme.txt (but then you wouldn't have this info)
-• seriko.alignmenttodesktop,free in the shell's descript.txt (but then it would be bound to the bottom of the screen)
-• seriko.use_self_alpha,1 in the shell's descript.txt (but then I would have to change the surfaces or they'd be invisible, and I don't feel like it. This option makes transparency in the png images be used AS transparency without needing a separate alpha file)
+At any time, you may get a new ice cube from the menu, with a new item inside.

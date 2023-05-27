@@ -9,6 +9,8 @@ craftmanw,ChocolateStarn Coffin-Heavyfoot & ScrapShred Drywallpatcher-Biker
 seriko.alignmenttodesktop,free
 seriko.use_self_alpha,1
 
+sakura.balloon.offsety,80
+
 sakura.bindgroup1100.name,Face,Toggle
 sakura.bindgroup1100.addid,1101
 
@@ -17,14 +19,33 @@ sakura.bindgroup101.name,Object,Sea Turtle
 sakura.bindgroup102.name,Object,Sea Purple
 sakura.bindgroup103.name,Object,Unicorn
 sakura.bindgroup104.name,Object,Key
-sakura.bindgroup105.name,Object,Candle
-sakura.bindgroup105.addid,10500
-sakura.bindgroup105.addid,10501
+
+sakura.bindgroup107.name,Object,d20
+sakura.bindgroup108.name,Object,Ice Cube
 
 sakura.bindgroup110.name,Object,Cherries
 sakura.bindgroup111.name,Object,Banana
 sakura.bindgroup112.name,Object,Mushroom - Red
 sakura.bindgroup113.name,Object,Mushroom - Purple
 sakura.bindgroup114.name,Object,Mushroom - Brown
+sakura.bindgroup115.name,Object,Egg - Brown
+sakura.bindgroup116.name,Object,Egg - White
+
+sakura.bindgroup150.name,Object,Candle - Red
+sakura.bindgroup150.addid,15000
+sakura.bindgroup150.addid,15001
+sakura.bindgroup151.name,Object,Candle - Blue
+sakura.bindgroup151.addid,15100
+sakura.bindgroup151.addid,15101
+sakura.bindgroup152.name,Object,Candle - Green
+sakura.bindgroup152.addid,15200
+sakura.bindgroup152.addid,15201
+sakura.bindgroup153.name,Object,Candle - Yellow
+sakura.bindgroup153.addid,15300
+sakura.bindgroup153.addid,15301
+sakura.bindgroup154.name,Object,Straw - Red
+sakura.bindgroup155.name,Object,Straw - Blue
+sakura.bindgroup156.name,Object,Straw - Green
+sakura.bindgroup157.name,Object,Straw - Yellow
 
 sakura.menuitem0,1100
