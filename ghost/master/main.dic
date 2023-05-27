@@ -8,6 +8,10 @@ OnFirstBoot
 	AutoAdjust = 1
 	DisplayedItems = IARRAY
 	ItemsThatHaveBeenDisplayed = IARRAY
+	meltphase = 0
+	cubelifestart = GETSECCOUNT
+	phasecountdown = GETSECCOUNT
+	LastTalk = ""
 	
 	foreach ItemMasterList; _item
 	{
@@ -185,15 +189,15 @@ OnSecondChange
 	_newphase = 0
 	case _time
 	{
-		when 0-1200 //Full
+		when 0-1999 //Full
 		{
 			_newphase = 0
 		}
-		when 1201-2100 //Mid
+		when 1200-2099 //Mid
 		{
 			_newphase = 1
 		}
-		when 2101-2700 //Tiny
+		when 2100-2699 //Tiny
 		{
 			_newphase = 2
 		}

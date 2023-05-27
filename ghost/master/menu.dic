@@ -187,7 +187,7 @@ OnDisplayItem : all
 			{
 				if _item[1] == reference0
 				{
-					"%(s)\_w[0]\p[%(_num)]\![move,--X=0,--Y=0,--time=0,--base=0]\![move,--X=0,--Y=0,--time=0,--base=0]"
+					"%(s)\_w[0]\p[%(_num)]\![move,--X=0,--Y=0,--time=0,--base=0]\![move,--X=0,--Y=0,--time=0,--base=0]" //I KNOW THERE ARE TWO MOVE COMMANDS HERE, for some reason if there aren't two it doesn't work some of the time....... SSP/2.6.47
 					break
 				}
 				_num++
