@@ -2,9 +2,9 @@ charset,UTF-8
 type,shell
 
 name,Standard Cube
-craftman,ChocolateStarn Coffin-Heavyfoot & ScrapShred Drywallpatcher-Biker
-craftmanw,ChocolateStarn Coffin-Heavyfoot & ScrapShred Drywallpatcher-Biker
-//craftmanurl,
+craftman,Galla & Zichqec
+craftmanw,Galla & Zichqec
+craftmanurl,https://github.com/Zichqec/KEEP_FROZEN
 
 seriko.alignmenttodesktop,free
 seriko.use_self_alpha,1

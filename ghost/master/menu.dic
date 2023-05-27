@@ -1,5 +1,6 @@
 OnMainMenu : all
 {
+	if reference0 == "collected"; "\C\![lock,balloonrepaint]\c"
 	"\0\*\b2\![set,autoscroll,disable]%(s)"
 	
 	if meltphase == 1 || meltphase == 2
@@ -8,16 +9,27 @@ OnMainMenu : all
 		"\n\n\![*]\q[Ok,OnFreezeCube]  \![*]\q[No,OnRefuse]\n\n[half]"
 	}
 	else; "\_q"
-	"\![*]\__q[OnNewCube]Get a new ice cube\__q\n\n"
 	
+	_item_to_collect = meltphase == 3 && CurrentItem != ""
+	
+	switch _item_to_collect
+	{
+		"\![*]\__q[OnNewCube]Get a new ice cube\__q"
+		"\![*]\f[color,disable]Get a new ice cube\f[color,default]"
+	}
+	"\n\n"
 	"\![*]\__q[OnStats]Stats\__q"
 	"  "
-	if meltphase == 3 && CurrentItem != ""; "\![*]\_a[OnCollectItem]Collect item\_a"
-	else; "\![*]\__q[OnCollectionView]Collection\__q"
+	switch _item_to_collect
+	{
+		"\![*]\__q[OnCollectionView]Collection\__q"
+		"\![*]\_a[OnCollectItem]Collect item\_a"
+	}
 	"\n\n[half]"
 	
 	"\![*]\__q[OnSettings]Settings\__q\n"
 	"\![*]\q[Cancel,cancel]"
+	"\![unlock,balloonrepaint]"
 }
 
 OnFreezeCube
@@ -45,6 +57,7 @@ OnNewCube
 
 OnStats : all
 {
+	
 	"\0\b2\*\_q\![set,autoscroll,disable]"
 	
 	_currentcubelife = 0
@@ -88,14 +101,14 @@ OnStats : all
 
 OnCollectItem
 {
-	"\![bind,Object,,0]"
+	"\C\![bind,Object,,0]\![raise,OnMainMenu,collected]"
 }
 
 OnCollectionView : all
 {
 	if reference0 == ""; reference0 = "Accessory"
 	"\C\![lock,balloonrepaint]\c"
-	"\0\b[2]\_q\![set,autoscroll,disable]\*\f[align,center]Collection\n\n\f[align,left]"
+	"\0\b[4,--fallback=2]\_q\![set,autoscroll,disable]\*\f[align,center]Collection\n\n\f[align,left]"
 	
 	_categories = IARRAY
 	_items = ""
@@ -152,8 +165,9 @@ OnCollectionView : all
 	"\![unlock,balloonrepaint]"
 }
 
-OnDisplayItem
+OnDisplayItem : all
 {
+	"\C"
 	if reference1 == "remove"
 	{
 		_index = ASEARCH(reference0,DisplayedItems)
@@ -165,11 +179,27 @@ OnDisplayItem
 	else
 	{
 		DisplayedItems ,= reference0
+		if ASEARCH(reference0,ItemsThatHaveBeenDisplayed) == -1
+		{
+			ItemsThatHaveBeenDisplayed ,= reference0
+			_num = 0
+			foreach ItemDisplayInfo; _item
+			{
+				if _item[1] == reference0
+				{
+					"%(s)\_w[0]\p[%(_num)]\![move,--X=0,--Y=0,--time=0,--base=0]\![move,--X=0,--Y=0,--time=0,--base=0]"
+					break
+				}
+				_num++
+			}
+			
+		}
 	}
-	"\C"
-	--
+	
 	s
-	--
+	
+	
+	
 	"\![raise,OnCollectionView,%(reference2)]"
 }
 
@@ -186,6 +216,7 @@ OnSettings : all
 	"\f[align,center]Settings\n\n\f[align,left]"
 	
 	"Talkrate: \_a[OnTalkRateMenu]%(_talkrate)\_a\n\n"
+	"Auto adjusting balloon size: \_a[OnAutoAdjustToggle]%(('Off','On')[AutoAdjust])\_a\n\n"
 	"\![*]\f[bold,1]\q[Reset,OnResetCheck]\f[bold,default]\n\n"
 	"\![*]\q[Back,OnMainMenu]  \![*]\q[Close,cancel]"
 }
@@ -216,6 +247,13 @@ OnTalkRateMenu : all
 OnTalkRateChange
 {
 	aitalkinterval = TOINT(reference0)
+	OnSettings
+}
+
+OnAutoAdjustToggle
+{
+	if AutoAdjust != 1; AutoAdjust = 1
+	else; AutoAdjust = 0
 	OnSettings
 }
 

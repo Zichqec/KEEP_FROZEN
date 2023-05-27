@@ -4,6 +4,11 @@ OnFirstBoot
 	CubeLives = IARRAY //Time counts of all cubes over time
 	ItemsCollected = IARRAY
 	refusals = 0
+	AvailableItems = ItemMasterList
+	AutoAdjust = 1
+	DisplayedItems = IARRAY
+	ItemsThatHaveBeenDisplayed = IARRAY
+	
 	foreach ItemMasterList; _item
 	{
 		ItemsCollected ,= "%(_item),0"
@@ -21,6 +26,8 @@ OnInitialize
 		phasecountdown = GETSECCOUNT
 		AvailableItems = ItemMasterList
 		LastTalk = ""
+		if !ISVAR("AutoAdjust"); AutoAdjust = 1
+		if !ISVAR("ItemsThatHaveBeenDisplayed"); ItemsThatHaveBeenDisplayed = IARRAY
 	}
 }
 
@@ -41,7 +48,7 @@ OnBoot
 
 BootText
 {
-	"\0\s[0]\b2KEEP FROZEN\w8\n\nSTORE AT 0°F/-18°C\w8\n\nEXCURSIONS PERMITTED TO 37°F/2.7°C\w8\n\nPRODUCT MAY LEAK OR HAVE CHANGES IN TEXTURE IF ALLOWED TO THAW"
+	"\0%(s)\b2KEEP FROZEN\w8\n\nSTORE AT 0°F/-18°C\w8\n\nEXCURSIONS PERMITTED TO 37°F/2.7°C\w8\n\nPRODUCT MAY LEAK OR HAVE CHANGES IN TEXTURE IF ALLOWED TO THAW"
 }
 
 OnClose : all
@@ -77,7 +84,7 @@ s : all
 	{
 		_entry = ItemDisplayInfo[_i]
 		
-		if _i == 0; continue
+		if _i == 0; continue // ??? is there a reason i didn't just start this loop at 1
 		
 		if ASEARCH(_entry[1],DisplayedItems) != -1
 		{
@@ -91,11 +98,12 @@ s : all
 	}
 	
 	"\0"
+	if ARRAYSIZE(AvailableItems) == 0; AvailableItems = ItemMasterList
 	if _argv[0] == "new"
 	{
 		_item = ANY(AvailableItems)
 		AvailableItems[LSO] = IARRAY
-		if ARRAYSIZE(AvailableItems) == 0; AvailableItems = ItemMasterList
+	
 		"\![bind,Object,,0]\![bind,Object,%(_item),1]"
 	}
 }
@@ -126,6 +134,20 @@ OnTranslate
 	if reference1 == "" && reference2 == "" //If this is from the input box
 	{ //send input box : no event (ref2) , no special flag (ref1)
 		_talk = EVAL('"' + REPLACE(_talk,'"','""') + '"')
+	}
+	
+	if "\![is-aitalk]" _in_ _talk && AutoAdjust
+	{
+		// _length = ARRAYSIZE(SPLIT(_talk," "))
+		// LOGGING("====================================================================")
+		// LOGGING("_length: %(_length)")
+		// if _length >= 30; _talk = "\b[4]" + _talk
+		// elseif _length >= 15; _talk = "\b[2]" + _talk
+		_len = STRLEN(_talk) - STRLEN("\![is-aitalk]")
+		LOGGING("====================================================================")
+		LOGGING("_len: %(_len)")
+		if _len >= 400; _talk = "\b[4]" + _talk
+		elseif _len >= 200; _talk = "\b[2]" + _talk
 	}
 	
 	TOSTR(_talk)
@@ -215,4 +237,9 @@ OnSecondChange
 		--
 		s
 	}
+}
+
+On_homeurl
+{
+	"https://raw.githubusercontent.com/Zichqec/KEEP_FROZEN/main/"
 }

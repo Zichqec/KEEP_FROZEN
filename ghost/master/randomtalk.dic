@@ -2,15 +2,15 @@ RandomTalk
 {
 	if meltphase == 0
 	{
-		"THINGS THAT ARE COLD:\w8\n%(bullet) %(TOUPPER(ThingsThatAreCold))\w8\n%(bullet) %(TOUPPER(ThingsThatAreCold))\w8\n%(bullet) %(TOUPPER(ThingsThatAreCold))"
+		"THINGS THAT ARE COLD:\w8\n%(bullet) %(TOUPPER(ThingsThatAreCold))\w8\n%(bullet) %(TOUPPER(ThingsThatAreCold))\w8\n%(bullet) %(TOUPPER(ThingsThatAreCold))\![is-aitalk]"
 	}
 	elseif meltphase == 1
 	{
-		"Things That Are Cold:\w8\n%(bullet) %(ThingsThatAreCold)\w8\n%(bullet) %(ThingsThatAreCold)\w8\n%(bullet) %(ThingsThatAreCold)"
+		"Things That Are Cold:\w8\n%(bullet) %(ThingsThatAreCold)\w8\n%(bullet) %(ThingsThatAreCold)\w8\n%(bullet) %(ThingsThatAreCold)\![is-aitalk]"
 	}
 	elseif meltphase == 2
 	{
-		"things that are cold:\w8\n%(bullet) %(TOLOWER(ThingsThatAreCold))\w8\n%(bullet) %(TOLOWER(ThingsThatAreCold))\w8\n%(bullet) %(TOLOWER(ThingsThatAreCold))"
+		"things that are cold:\w8\n%(bullet) %(TOLOWER(ThingsThatAreCold))\w8\n%(bullet) %(TOLOWER(ThingsThatAreCold))\w8\n%(bullet) %(TOLOWER(ThingsThatAreCold))\![is-aitalk]"
 	}
 }
 
@@ -105,7 +105,7 @@ ThingsThatAreCold : nonoverlap
 	"Not Paying Back Money That A Friend Lent To You"
 	"Not Tipping Your Server In A Place Where Tipping Is Expected"
 	"Falling Into A Snowdrift"
-	"some people's attitudes after finding out they've been lied to"
+	"Some People's Attitudes After Finding Out They've Been Lied To"
 	"Down Payments"
 	"Space Walks"
 	"Jumping Into A Pile Of Snow"
@@ -130,7 +130,7 @@ ThingsThatAreCold : nonoverlap
 	"Waterslides"
 	"Water Balloon Fights"
 	"Autumn Days"
-	"Frostklllll"
+	"Frostbite"
 	"Morning Dew"
 	"Satellites"
 	"Aerosol Cans After Use"
