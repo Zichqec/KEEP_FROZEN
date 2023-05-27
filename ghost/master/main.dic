@@ -183,13 +183,19 @@ OnMouseDoubleClick
 
 OnSecondChange
 {
+	LOGGING("====================================================================")
+	LOGGING("OnSecondChange")
 	_sec = GETSECCOUNT
 	_time = _sec - phasecountdown
+	
+	LOGGING("_sec: %(_sec)")
+	LOGGING("_time: %(_time)")
+	
 	
 	_newphase = 0
 	case _time
 	{
-		when 0-1999 //Full
+		when 0-1199 //Full
 		{
 			_newphase = 0
 		}
@@ -206,14 +212,19 @@ OnSecondChange
 			_newphase = 3
 		}
 	}
+	LOGGING("_newphase: %(_newphase)")
+	LOGGING("meltphase: %(meltphase)")
+	LOGGING("cubelifestart: %(cubelifestart)")
+	LOGGING("phasecountdown: %(phasecountdown)")
 	
 	//1200 - 20 mins
 	//2100 - 20 mins + 15 mins
 	//2700 - 20 mins + 15 mins + 10 mins
 	if _newphase != meltphase
 	{
+		LOGGING("newphase != meltphase")
 		meltphase = _newphase
-		
+		LOGGING("new meltphase: %(meltphase)")
 		//Add item to collection
 		if meltphase == 3
 		{
@@ -241,6 +252,8 @@ OnSecondChange
 		--
 		s
 	}
+	LOGGING
+	LOGGING
 }
 
 On_homeurl
