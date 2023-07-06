@@ -5,12 +5,13 @@ OnMainMenu : all
 	
 	if meltphase == 1 || meltphase == 2
 	{
-		"Please put me in the freezer.\_q"
+		_p = "P"; if meltphase == 2; _p = "p"
+		"%(_p)lease put me in the freezer.\_q"
 		"\n\n\![*]\q[Ok,OnFreezeCube]  \![*]\q[No,OnRefuse]\n\n[half]"
 	}
 	else; "\_q"
 	
-	_item_to_collect = meltphase == 3 && CurrentItem != ""
+	_item_to_collect = meltphase == 3 && CurrentItem != "" && reference0 != "collected"
 	
 	switch _item_to_collect
 	{
