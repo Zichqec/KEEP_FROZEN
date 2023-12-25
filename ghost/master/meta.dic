@@ -69,12 +69,13 @@ OnUpdateComplete : all
 {
 	if reference0 == "none"
 	{
-		"\0%(s)" + ToMeltCase("There are no new files.")
+		"%(s)" + ToMeltCase("There are no new files.")
 	}
 	else
 	{
-		"\0%(s)"
+		"%(s)"
 		if CurrentItem == ""; "\![bind,Object,Candy Cane - Red,1]" //Apology for renumbering stuff and making ice cube therefore be empty upon updating lol
+		else; "\![bind,Object,%(CurrentItem),1]"
 		ToMeltCase("Update complete.")
 	}
 }
