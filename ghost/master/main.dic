@@ -4,7 +4,7 @@ OnFirstBoot
 	CubeLives = IARRAY //Time counts of all cubes over time
 	ItemsCollected = IARRAY
 	refusals = 0
-	AvailableItems = ItemMasterList
+	RecentItems = IARRAY
 	AutoAdjust = 1
 	DisplayedItems = IARRAY
 	ItemsThatHaveBeenDisplayed = IARRAY
@@ -12,6 +12,9 @@ OnFirstBoot
 	cubelifestart = GETSECCOUNT
 	phasecountdown = GETSECCOUNT
 	LastTalk = ""
+	CurrentNeedlePokes = 0 //Current
+	NeedlePokes = IARRAY //Over time
+	CurrentRefusals = 0
 	
 	foreach ItemMasterList; _item
 	{
@@ -28,10 +31,13 @@ OnInitialize
 		meltphase = 0
 		cubelifestart = GETSECCOUNT
 		phasecountdown = GETSECCOUNT
-		AvailableItems = ItemMasterList
+		RecentItems = IARRAY
 		LastTalk = ""
 		if !ISVAR("AutoAdjust"); AutoAdjust = 1
 		if !ISVAR("ItemsThatHaveBeenDisplayed"); ItemsThatHaveBeenDisplayed = IARRAY
+		if !ISVAR("NeedlePokes"); NeedlePokes = IARRAY
+		CurrentNeedlePokes = 0
+		CurrentRefusals = 0
 	}
 }
 
@@ -39,7 +45,7 @@ OnDestroy
 {
 	if reference0 != "reload"
 	{
-		if meltphase != 3; SaveCubeTime
+		if meltphase != 3 && (GETSECCOUNT - cubelifestart) > 300; SaveCubeTime
 	}
 }
 
@@ -84,33 +90,75 @@ s : all
 {
 	"\0\s[%(meltphase)]"
 	
-	for _i = 0; _i < ARRAYSIZE(SHIORI3FW.IsVisible) || _i < ARRAYSIZE(ItemDisplayInfo); _i++ //TODO double check this all works as intended
+	//Checking both in case there are ever stragglers that need to be cleaned up
+	foreach ItemDisplayInfo; _item
 	{
-		_entry = ItemDisplayInfo[_i]
-		
-		if _i == 0; continue // ??? is there a reason i didn't just start this loop at 1
-		
-		if ASEARCH(_entry[1],DisplayedItems) != -1
+		//If it should be here, make it be here. If it should not be here and it is, make it not be here
+		if ASEARCH(_item[1],DisplayedItems) != -1
 		{
-			"\p[%(_i)]\s[%(_entry[2])]"
+			"\p[%(_item[2])]\s[%(_item[2])]"
 			
 		}
-		elseif SHIORI3FW.IsVisible[_i] == 1
+		elseif ASEARCH(_item[2],IsVisible) != -1
 		{
-			"\p[%(_i)]\s[-1]"
+			"\p[%(_item[2])]\s[-1]"
+		}
+	}
+	
+	//Make a list of valid character IDs, and remove any characters that are not of those IDs
+	_validIDs = (0)
+	foreach ItemDisplayInfo; _item
+	{
+		_validIDs ,= _item[2]
+	}
+	
+	foreach IsVisible; _char
+	{
+		if ASEARCH(_char,_validIDs) == -1
+		{
+			"\p[%(_char)]\s[-1]"
 		}
 	}
 	
 	"\0"
-	if ARRAYSIZE(AvailableItems) == 0; AvailableItems = ItemMasterList
 	if _argv[0] == "new"
 	{
-		_item = ANY(AvailableItems)
-		AvailableItems[LSO] = IARRAY
-	
-		"\![bind,Object,,0]\![bind,Object,%(_item),1]"
+		_newitem = ANY(ItemMasterList)
+		while ASEARCH(_newitem,RecentItems) != -1
+		{
+			_newitem = ANY(ItemMasterList)	
+		}
+		RecentItems ,= _newitem
+		if ARRAYSIZE(RecentItems) > 5; RecentItems[0] = IARRAY
+		"\![bind,Object,,0]\![bind,Object,%(_newitem),1]"
 	}
 }
+
+
+OnSurfaceChange
+{
+	_reference = reference2
+	_char = reference2[0]
+	_surface = reference2[1]
+	
+	if TOINT(_surface) >= 0
+	{
+		if ASEARCH(_char,IsVisible) == -1; IsVisible ,= _char
+	}
+	else
+	{
+		_elements = ASEARCHEX(_char,IsVisible)
+		if ARRAYSIZE(_elements) > 0
+		{
+			for _i = ARRAYSIZE(_elements) - 1; _i >= 0; _i-- //Goes from the end of the list to the start, so the elements stay in the same positions while we erase
+			{
+				_current = _elements[_i]
+				IsVisible[_current] = IARRAY
+			}
+		}
+	}
+}
+
 
 //[character ID, category name, part name, option, on-1/off-0, thumbnail path]
 OnNotifyDressupInfo
@@ -142,14 +190,8 @@ OnTranslate
 	
 	if "\![is-aitalk]" _in_ _talk && AutoAdjust
 	{
-		// _length = ARRAYSIZE(SPLIT(_talk," "))
-		// LOGGING("====================================================================")
-		// LOGGING("_length: %(_length)")
-		// if _length >= 30; _talk = "\b[4]" + _talk
-		// elseif _length >= 15; _talk = "\b[2]" + _talk
 		_len = STRLEN(_talk) - STRLEN("\![is-aitalk]")
-		LOGGING("====================================================================")
-		LOGGING("_len: %(_len)")
+		
 		if _len >= 400; _talk = "\b[4]" + _talk
 		elseif _len >= 200; _talk = "\b[2]" + _talk
 	}
@@ -183,14 +225,8 @@ OnMouseDoubleClick
 
 OnSecondChange
 {
-	LOGGING("====================================================================")
-	LOGGING("OnSecondChange")
 	_sec = GETSECCOUNT
 	_time = _sec - phasecountdown
-	
-	LOGGING("_sec: %(_sec)")
-	LOGGING("_time: %(_time)")
-	
 	
 	_newphase = 0
 	case _time
@@ -212,10 +248,6 @@ OnSecondChange
 			_newphase = 3
 		}
 	}
-	LOGGING("_newphase: %(_newphase)")
-	LOGGING("meltphase: %(meltphase)")
-	LOGGING("cubelifestart: %(cubelifestart)")
-	LOGGING("phasecountdown: %(phasecountdown)")
 	
 	//1200 - 20 mins
 	//2100 - 20 mins + 15 mins
@@ -252,11 +284,64 @@ OnSecondChange
 		--
 		s
 	}
-	LOGGING
-	LOGGING
 }
 
 On_homeurl
 {
 	"https://raw.githubusercontent.com/Zichqec/KEEP_FROZEN/main/"
+}
+
+OnNeedlePoke
+{
+	if reference0 == 0
+	{
+		CurrentNeedlePokes++
+		
+		_found = 0
+		for _i = 0; _i < ARRAYSIZE(NeedlePokes); _i++
+		{
+			_name = NeedlePokes[_i][0]
+			if _name == reference1
+			{
+				_found = 1
+				NeedlePokes[_i] = "%(NeedlePokes[_i][0]),%(TOINT(NeedlePokes[_i][1]) + 1)"
+			}
+		}
+		if !_found
+		{
+			NeedlePokes ,= "%(reference1),1"
+		}
+		//NeedlePokes
+		if "\f[align,center]Needle Pokes\n\n\f[align,left]" _in_ SHIORI3FW.LastTalk && MenuIsOpen; "\C\![raise,OnNeedlePokeStats]"
+	}
+}
+
+//As the name implies, this checks if the balloon is currently open with a menu choice or not.
+//Will be 0 if a menu is not open, and 1 if a menu is open
+MenuIsOpen
+{
+	"choosing" _in_ var.req.value[ASEARCH("Status",var.req.key)]
+}
+
+
+
+On_getaistate
+{
+	if SHIORI3FW.DebugMode
+	{
+		"%(OUTPUTNUM('ThingsThatAreCold')),/
+		%(ARRAYSIZE(ItemDisplayInfo)),/
+		%(OUTPUTNUM('sodapop')),/
+		" + C_BYTE1 + /
+		
+		"Things That Are Cold,/
+		Items,/
+		sodapop,/
+		" + C_BYTE1
+	}
+}
+
+ghostver
+{
+	"1.1.0"
 }

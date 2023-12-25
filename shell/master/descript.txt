@@ -11,41 +11,64 @@ seriko.use_self_alpha,1
 
 sakura.balloon.offsety,80
 
-sakura.bindgroup1100.name,Face,Toggle
-sakura.bindgroup1100.addid,1101
+sakura.bindgroup10100.name,Face,Toggle
+sakura.bindgroup10100.addid,10101
 
 sakura.bindgroup100.name,Object,Skull
-sakura.bindgroup101.name,Object,Sea Turtle
-sakura.bindgroup102.name,Object,Sea Purple
-sakura.bindgroup103.name,Object,Unicorn
-sakura.bindgroup104.name,Object,Key
+sakura.bindgroup101.name,Object,Key
+sakura.bindgroup102.name,Object,d20
+sakura.bindgroup103.name,Object,Ice Cube
+sakura.bindgroup104.name,Object,Water
+sakura.bindgroup105.name,Object,Plush
+sakura.bindgroup106.name,Object,Bow and Bell
 
-sakura.bindgroup107.name,Object,d20
-sakura.bindgroup108.name,Object,Ice Cube
+sakura.bindgroup200.name,Object,Sea Turtle
+sakura.bindgroup201.name,Object,Sea Purple
+sakura.bindgroup202.name,Object,Unicorn
+sakura.bindgroup203.name,Object,The Moon
 
-sakura.bindgroup110.name,Object,Cherries
-sakura.bindgroup111.name,Object,Banana
-sakura.bindgroup112.name,Object,Mushroom - Red
-sakura.bindgroup113.name,Object,Mushroom - Purple
-sakura.bindgroup114.name,Object,Mushroom - Brown
-sakura.bindgroup115.name,Object,Egg - Brown
-sakura.bindgroup116.name,Object,Egg - White
+sakura.bindgroup300.name,Object,Cherries
+sakura.bindgroup301.name,Object,Banana
+sakura.bindgroup302.name,Object,Mushroom - Red
+sakura.bindgroup303.name,Object,Mushroom - Purple
+sakura.bindgroup304.name,Object,Mushroom - Brown
+sakura.bindgroup305.name,Object,Egg - Brown
+sakura.bindgroup306.name,Object,Egg - White
+sakura.bindgroup307.name,Object,Tree
 
-sakura.bindgroup150.name,Object,Candle - Red
-sakura.bindgroup150.addid,15000
-sakura.bindgroup150.addid,15001
-sakura.bindgroup151.name,Object,Candle - Blue
-sakura.bindgroup151.addid,15100
-sakura.bindgroup151.addid,15101
-sakura.bindgroup152.name,Object,Candle - Green
-sakura.bindgroup152.addid,15200
-sakura.bindgroup152.addid,15201
-sakura.bindgroup153.name,Object,Candle - Yellow
-sakura.bindgroup153.addid,15300
-sakura.bindgroup153.addid,15301
-sakura.bindgroup154.name,Object,Straw - Red
-sakura.bindgroup155.name,Object,Straw - Blue
-sakura.bindgroup156.name,Object,Straw - Green
-sakura.bindgroup157.name,Object,Straw - Yellow
+sakura.bindgroup400.name,Object,Candle - Red
+sakura.bindgroup400.addid,40000
+sakura.bindgroup400.addid,40001
+sakura.bindgroup401.name,Object,Candle - Blue
+sakura.bindgroup401.addid,40100
+sakura.bindgroup401.addid,40101
+sakura.bindgroup402.name,Object,Candle - Green
+sakura.bindgroup402.addid,40200
+sakura.bindgroup402.addid,40201
+sakura.bindgroup403.name,Object,Candle - Yellow
+sakura.bindgroup403.addid,40300
+sakura.bindgroup403.addid,40301
 
-sakura.menuitem0,1100
+sakura.bindgroup404.name,Object,Straw - Red
+sakura.bindgroup405.name,Object,Straw - Blue
+sakura.bindgroup406.name,Object,Straw - Green
+sakura.bindgroup407.name,Object,Straw - Yellow
+
+sakura.bindgroup500.name,Object,Beetle - Green
+sakura.bindgroup501.name,Object,Beetle - Pink
+sakura.bindgroup502.name,Object,Beetle - Brown
+sakura.bindgroup503.name,Object,Beetle - Purple
+sakura.bindgroup504.name,Object,Worm - Pink
+sakura.bindgroup505.name,Object,Worm - Brown
+sakura.bindgroup506.name,Object,Worm - White
+sakura.bindgroup507.name,Object,Fly - House
+sakura.bindgroup508.name,Object,Fly - Fruit
+sakura.bindgroup509.name,Object,Fly - Black
+
+sakura.bindgroup600.name,Object,Candy Cane - Red
+sakura.bindgroup601.name,Object,Candy Cane - Green
+sakura.bindgroup602.name,Object,Candy Cane - Red & Green
+sakura.bindgroup603.name,Object,Snowflake
+sakura.bindgroup604.name,Object,Coal
+
+sakura.menuitem0,10100

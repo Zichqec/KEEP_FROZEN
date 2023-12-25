@@ -8,6 +8,7 @@ name,Thaw
 craftman,Zichqec
 craftmanw,Zichqec
 craftmanurl,https://zichqec.github.io/s-the-skeleton/
+homeurl,https://zichqec.github.io/s-the-skeleton/updates/balloons/thaw_ss-db/
 
 
 origin.x,16

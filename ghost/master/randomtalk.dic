@@ -1,17 +1,36 @@
 RandomTalk
 {
-	if meltphase == 0
-	{
-		"THINGS THAT ARE COLD:\w8\n%(bullet) %(TOUPPER(ThingsThatAreCold))\w8\n%(bullet) %(TOUPPER(ThingsThatAreCold))\w8\n%(bullet) %(TOUPPER(ThingsThatAreCold))\![is-aitalk]"
+	if meltphase < 3
+	{		
+		_script = ToMeltCase("Things That Are Cold: ")
+		for _i = 0; _i < 3; _i++
+		{
+			_script += "\w8\n%(bullet) "
+			if CurrentNeedlePokes >= 1
+			{
+				_script += ToMeltCase("Poking Someone")
+				CurrentNeedlePokes--
+			}
+			elseif CurrentRefusals >= 1
+			{
+				_script += ToMeltCase("You")
+				CurrentRefusals--
+			}
+			else; _script += ToMeltCase(ThingsThatAreCold)
+		}
+		_script += "\![is-aitalk]"
+		_script
+		CurrentNeedlePokes = 0
+		CurrentRefusals = 0
 	}
-	elseif meltphase == 1
-	{
-		"Things That Are Cold:\w8\n%(bullet) %(ThingsThatAreCold)\w8\n%(bullet) %(ThingsThatAreCold)\w8\n%(bullet) %(ThingsThatAreCold)\![is-aitalk]"
-	}
-	elseif meltphase == 2
-	{
-		"things that are cold:\w8\n%(bullet) %(TOLOWER(ThingsThatAreCold))\w8\n%(bullet) %(TOLOWER(ThingsThatAreCold))\w8\n%(bullet) %(TOLOWER(ThingsThatAreCold))\![is-aitalk]"
-	}
+}
+
+ToMeltCase
+{
+	_input = _argv[0]
+	if meltphase == 2; TOLOWER(_input)
+	elseif meltphase == 0; TOUPPER(_input)
+	else; _input
 }
 
 ThingsThatAreCold : nonoverlap
@@ -197,7 +216,7 @@ ThingsThatAreCold : nonoverlap
 	"Stomping On Someone's Sand Castle"
 	"Not Hanging Your Child's Art On The Fridge"
 	"A Mixture Of Salt, Water, And Ice"
-	"Biting Someone (Without Consent)"
+	"Biting Someone (Without Consent)" //TODO word wrap weird but idk if i can fix lol
 	"Unfriending Someone Without Warning"
 	"Licking A Frozen Light Pole"
 	"Juice Boxes From The Fridge"
@@ -316,6 +335,106 @@ ThingsThatAreCold : nonoverlap
 	"Talking About Someone Even Though They're Standing Right In Front Of You"
 	"Deep Dark Caverns Winding Downwards Into The Earth"
 	"Frozen Muffins"
+	"Sleeping Trains"
+	"Hot Chocolate Left On The Counter Overnight"
+	"The Remnants Of Last Night's Take-Out, Shoved To The Back Of The Fridge"
+	"The Edges Of The Galaxy"
+	"Ice Skating"
+	"Making Vast Amounts Of Snowballs, With Which To Pelt Your Enemies"
+	"Getting Pelted By Vast Amounts Of Snowballs"
+	"Blackmail"
+	"The Hearts Of Vampires"
+	"Having A Picnic In A Walk-In Cooler"
+	"Winter Months"
+	"July In The Southern Hemisphere"
+	"January In The Northern Hemisphere"
+	"The Moon"
+	"Salt Shakers Full Of Snow"
+	"A Palette Of Frozen Acrylic Paints, Given To A Painter As A Prank"
+	"Fake Food Displays"
+	"Wind Chill"
+	"Uneaten Pizza Rolls"
+	"Evergreen Trees In The Snow"
+	"The Ice Queen"
+	"Whipped Topping At Proper Serving Temperature"
+	"2 Light Blue Heart Emoji And 0 Dark Blue Heart Emoji"
+	"Taking A Plunge Into The Lake"
+	"Biting Into Ice Cream"
+	"Shoving Your Partner Out The Airlock Unprepared"
+	"Standing Outside In The Rain"
+	"Sleeping On The Ground"
+	"Frozen Socks"
+	"A Shower After All The Washers Have Finished"
+	"Breaking Your Spreadsheet Format"
+	"The Heater Breaking"
+	"Running Out Of Ice"
+	"Dry Markers"
+	"Figuring Out The Answer To A Question Right After You Already Asked Someone For Help"
+	"That One Typo No Proofreaders Noticed"
+	"Asking For Chocolate Chip But Getting Raisins"
+	"Loading Screen Stuck At 99%"
+	"Cookies But They're For A Party, Not For You"
+	"Sewing Without A Thimble"
+	"So Many Cans, No Can Opener"
+	"The Underside Of The Table"
+	"Caffeine Free Caffeinated Drinks"
+	"Hands That Are Holding Snowballs"
+	"Moonless Nights"
+	"Sleeping On The Couch"
+	"Laying On The Floor"
+	"Sticking Your Fingers In The Ice Bin"
+	"Scraping Frost Out Of The Freezer"
+	"Pretending To Listen"
+	"Air Ducts After The Air Conditioning Has Been On"
+	"Splashing Around In The Creek"
+	"Waterfalls"
+	"Walking In The Woods After It Snows"
+	"Stabbing Someone For No Reason"
+	"The Sensation Of Moving Air"
+	"Hiding In The Freezer"
+	"The Bug Collection You Left In The Freezer"
+	"The Taste Of Mint"
+	"Uncooked Noodles Stored In The Fridge"
+	"Fruit Juice Popsicles"
+	"An Ice Sickle"
+	"Frozen Eggs"
+	"Refusing To Communicate"
+	"Getting Doused In Ice Water"
+	"Putting Out Someone's Candle"
+	"Water Popsicles"
+	"Fake Ice Cream"
+	"Promising Ice Cream And Then Not Delivering"
+	"Drawing On A Frosty Window With Your Finger"
+	"Sad Ravioli Left Out On The Sidewalk"
+	"Undermining Your Coworker's Position"
+	"Frozen Mushrooms"
+	"Frozen Tuna"
+	"Chicken That Is Sitting Out To Thaw"
+	"Salad With Extra Ice Cubes"
+	"Chilled Potato Chips"
+	"Stealing Someone's Lunch Out Of The Company Fridge"
+	"Never Paying For Lunch With A Friend"
+	"Black Holes"
+	"Getting Launched Out Of Your Space Ship, Far Out Amongst The Stars Where No One Will Find You"
+	"Betrayal"
+	"Shoving An Entire Fudge Pop In Your Mouth All At Once"
+	"A Lunch Box Full Of Ice Packs"
+	"The Sensation Of Touching Room-Temperature Metal"
+	"Premeditated Murder"
+	"Setting Up A Pitfall Trap Outside Someone's House"
+	"Intentional Total Party Kills"
+	"Sabotaging Your Friend's Playthrough"
+	"Telling Someone To Be Quiet"
+	"Shoving A Bicyclist Over As They Pass By"
+	"Throwing Ice Cream At Passers-By"
+	"Life On The Moon"
+	"Moon Rocks"
+	"Insurance Fraud"
+	"A Batch Of Cookies, Left Out To Cool And Then Forgotten About"
+	"Cans Of Ravioli Stashed In The Freezer"
+	"All The Water Bottles Taking Up 2/3rds Of The Fridge"
+	"Leaving All The Doors And Windows Open During A Snowstorm"
+	"Stealing Someone's Family Photos"
 }
 
 sodapop

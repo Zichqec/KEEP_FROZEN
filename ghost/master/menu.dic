@@ -1,7 +1,7 @@
 OnMainMenu : all
 {
 	if reference0 == "collected"; "\C\![lock,balloonrepaint]\c"
-	"\0\*\b2\![set,autoscroll,disable]%(s)"
+	"\0\*\b[2]\![set,autoscroll,disable]%(s)"
 	
 	if meltphase == 1 || meltphase == 2
 	{
@@ -44,11 +44,13 @@ OnFreezeCube
 OnRefuse
 {
 	refusals++
+	CurrentRefusals++
 }
 
 OnNewCube
 {
-	if meltphase != 3; SaveCubeTime
+	//If it's less than 5 minutes, cycle without saving this one (so as not to tank stats). If it's melted, don't save because we already did.
+	if meltphase != 3 && (GETSECCOUNT - cubelifestart) > 300; SaveCubeTime
 	meltphase = 0
 	cubelifestart = GETSECCOUNT
 	phasecountdown = GETSECCOUNT
@@ -58,8 +60,8 @@ OnNewCube
 
 OnStats : all
 {
-	
-	"\0\b2\*\_q\![set,autoscroll,disable]"
+	"\C\![lock,balloonrepaint]\c"
+	"\0\b[4,--fallback=2]\*\_q\![set,autoscroll,disable]"
 	
 	_currentcubelife = 0
 	
@@ -84,6 +86,12 @@ OnStats : all
 		_itemnum += TOINT(_item[1])
 	}
 	
+	_needlepokes = 0
+	for _i = 0; _i < ARRAYSIZE(NeedlePokes); _i++
+	{
+		_needlepokes += TOINT(NeedlePokes[_i][1])
+	}
+	
 	_h = "\f[color,default.anchor]"
 	_d = "\f[color,default]"
 	
@@ -92,12 +100,46 @@ OnStats : all
 	"Longest lifespan: %(_h)%(FormatTime(_longestcube))%(_d)\n"
 	"Average lifespan: %(_h)%(FormatTime(_avgcube))%(_d)\n"
 	"Total lifespan: %(_h)%(FormatTime(_totalcube))%(_d)\n"
+	"\n"
 	"Total cubes: %(_h)%(_cubenum)%(_d)\n"
 	"Items collected: %(_h)%(_itemnum)%(_d)\n"
+	
+	if _refusals > 0 || _needlepokes > 0; "\n"
+	
 	if refusals > 0; "Refusals: %(_h)%(refusals)%(_d)\n"
+	if _needlepokes > 0; "\q[Pokes,OnNeedlePokeStats]: %(_h)%(_needlepokes)%(_d)\n"
 	"\n"
 	
 	"\![*]\q[Back,OnMainMenu]  \![*]\q[Close,cancel]"
+	"\![unlock,balloonrepaint]"
+}
+
+OnNeedlePokeStats : all
+{
+	_h = "\f[color,default.anchor]"
+	_d = "\f[color,default]"
+	_total = 0
+	_display = ""
+	_needlepokes = ASORT("string,ascending",NeedlePokes)
+	for _i = 0; _i < ARRAYSIZE(_needlepokes); _i++
+	{
+		_total += TOINT(_needlepokes[_i][1])
+		_display += "%(_needlepokes[_i][0]): %(_h)%(_needlepokes[_i][1])%(_d)\n"
+	}
+	
+	"\C\![lock,balloonrepaint]\c"
+	if ARRAYSIZE(NeedlePokes) > 5; "\0\b[4,--fallback=2]"
+	else; "\0\b2"
+	
+	"\*\_q\![set,autoscroll,disable]"
+	"\f[align,center]Needle Pokes\n\n\f[align,left]"
+	"Total: %(_h)%(_total)%(_d)\n\n"
+	
+	_display
+	
+	"\n"
+	"\![*]\q[Back,OnStats]  \![*]\q[Close,cancel]"
+	"\![unlock,balloonrepaint]"
 }
 
 OnCollectItem
@@ -116,13 +158,12 @@ OnCollectionView : all
 	_itemarray = ASORT("string,ascending",ItemDisplayInfo)
 	foreach _itemarray; _item
 	{
-		if _item == ""; continue
-		
 		if ASEARCH(_item[0],_categories) == -1; _categories ,= _item[0]
 		
 		if _item[0] == reference0
 		{
 			_name = _item[1]
+			_ID = _item[2]
 			
 			_index = -1
 			for _i = 0; _i < ARRAYSIZE(ItemsCollected); _i++
@@ -139,7 +180,7 @@ OnCollectionView : all
 			if _num > 0
 			{
 				if ASEARCH(_name,DisplayedItems) != -1; _items += "\_a[OnDisplayItem,%(_name),remove,%(reference0)]%(_name)\_a"
-				else; _items += "\__q[OnDisplayItem,%(_name),add,%(reference0)]%(_name)\__q"
+				else; _items += "\__q[OnDisplayItem,%(_name),%(_ID),%(reference0)]%(_name)\__q"
 			}
 			else; _items += "%(_name)"
 			
@@ -155,8 +196,9 @@ OnCollectionView : all
 		if _category == reference0; "\_a[OnCollectionView,%(_category)]%(_category)\_a"
 		else; "\__q[OnCollectionView,%(_category)]%(_category)\__q"
 		
-		if _category == "Marbles" && SHIORI3FW.BalloonName == "Thaw"; "\n"
-		else; "  "
+		//if _category == "Marbles" && SHIORI3FW.BalloonName == "Thaw"; "\n"
+		//else; "  "
+		"  "
 	}
 	"\n\n"
 	_items
@@ -180,18 +222,16 @@ OnDisplayItem : all
 	else
 	{
 		DisplayedItems ,= reference0
-		if ASEARCH(reference0,ItemsThatHaveBeenDisplayed) == -1
+		if ASEARCH(reference1,ItemsThatHaveBeenDisplayed) == -1
 		{
-			ItemsThatHaveBeenDisplayed ,= reference0
-			_num = 0
+			ItemsThatHaveBeenDisplayed ,= reference1
 			foreach ItemDisplayInfo; _item
 			{
 				if _item[1] == reference0
 				{
-					"%(s)\_w[0]\p[%(_num)]\![move,--X=0,--Y=0,--time=0,--base=0]\![move,--X=0,--Y=0,--time=0,--base=0]" //I KNOW THERE ARE TWO MOVE COMMANDS HERE, for some reason if there aren't two it doesn't work some of the time....... SSP/2.6.47
+					"%(s)\_w[0]\p[%(reference1)]\![move,--X=0,--Y=0,--time=0,--base=0]\![move,--X=0,--Y=0,--time=0,--base=0]" //I KNOW THERE ARE TWO MOVE COMMANDS HERE, for some reason if there aren't two it doesn't work some of the time....... SSP/2.6.47
 					break
 				}
-				_num++
 			}
 			
 		}
@@ -206,6 +246,10 @@ OnDisplayItem : all
 
 OnSettings : all
 {
+	_itemsdisplayed = ARRAYSIZE(DisplayedItems) > 0
+	_balloon = "2"
+	if _itemsdisplayed && SHIORI3FW.BalloonName == "Thaw"; _balloon = 4
+	
 	_talkrate = "Off"
 	if aitalkinterval == 30; _talkrate = "30 seconds"
 	elseif aitalkinterval == 60; _talkrate = "1 minute"
@@ -213,18 +257,27 @@ OnSettings : all
 	elseif aitalkinterval == 300; _talkrate = "5 minutes"
 	elseif aitalkinterval == 600; _talkrate = "10 minutes"
 	
-	"\0\*\b2\![set,autoscroll,disable]\_q\f[anchorvisitedfontcolor,default.anchor]"
+	"\C\![lock,balloonrepaint]\c"
+	"\0\*\b[%(_balloon)]\![set,autoscroll,disable]\_q\f[anchorvisitedfontcolor,default.anchor]"
 	"\f[align,center]Settings\n\n\f[align,left]"
 	
 	"Talkrate: \_a[OnTalkRateMenu]%(_talkrate)\_a\n\n"
 	"Auto adjusting balloon size: \_a[OnAutoAdjustToggle]%(('Off','On')[AutoAdjust])\_a\n\n"
+	if _itemsdisplayed
+	{
+		"\![*]\q[Reset item positions,OnResetPositions]\n"
+		"\![*]\q[Hide all items,OnHideAll]\n"
+		"\n"
+	}
+	
 	"\![*]\f[bold,1]\q[Reset,OnResetCheck]\f[bold,default]\n\n"
 	"\![*]\q[Back,OnMainMenu]  \![*]\q[Close,cancel]"
+	"\n \n[-100]\f[align,right]\f[color,disable]v%(ghostver)\f[color,default]"
+	"\![unlock,balloonrepaint]"
 }
 
 OnTalkRateMenu : all
-{	
-	//This is just setting up a label, you may need to add to it or tweak it if you change what rates are available
+{
 	_talkrate = "Off"
 	if aitalkinterval == 30; _talkrate = "30 seconds"
 	elseif aitalkinterval == 60; _talkrate = "1 minute"
@@ -232,6 +285,7 @@ OnTalkRateMenu : all
 	elseif aitalkinterval == 300; _talkrate = "5 minutes"
 	elseif aitalkinterval == 600; _talkrate = "10 minutes"
 	
+	"\C\![lock,balloonrepaint]\c"
 	"\0\b2\![set,autoscroll,disable]\_q"
 	"Current interval: %(_talkrate)\n\n"
 	
@@ -243,6 +297,7 @@ OnTalkRateMenu : all
 	"\![*]\q[10 minutes,OnTalkRateChange,600]\n"
 	"\n"
 	"\![*]\q[Back,OnSettings]  \![*]\q[Close,cancel]"
+	"\![unlock,balloonrepaint]"
 }
 
 OnTalkRateChange
@@ -256,6 +311,40 @@ OnAutoAdjustToggle
 	if AutoAdjust != 1; AutoAdjust = 1
 	else; AutoAdjust = 0
 	OnSettings
+}
+
+OnResetPositionsCheck : all
+{
+	"\C\![lock,balloonrepaint]\c"
+	"\0\b[4,--fallback=2]\_q\![set,autoscroll,disable]\*"
+	"This will reset the position of all items on screen. Proceed?\n\n"
+	"\![*]\q[Yes,OnResetPositions,%(reference0)]  \![*]\q[No,OnSettings]"
+	"\![unlock,balloonrepaint]"
+}
+
+OnResetPositions : all
+{
+	"\_q"
+	foreach ItemDisplayInfo; _item
+	{
+		_num = _item[2]
+		"\p[%(_num)]\![move,--X=0,--Y=0,--time=0,--base=0]"
+	}
+	s
+	"\![raise,OnSettings]"
+}
+
+OnHideAll : all
+{
+	DisplayedItems = IARRAY
+	"\_q"
+	foreach ItemDisplayInfo; _item
+	{
+		_num = _item[2]
+		"\p[%(_num)]\s[-1]"
+	}
+	s
+	"\![raise,OnSettings]"
 }
 
 OnResetCheck : all
