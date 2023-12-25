@@ -73,9 +73,10 @@ OnUpdateComplete : all
 	}
 	else
 	{
-		"%(s)"
+		"\0"
 		if CurrentItem == ""; "\![bind,Object,Candy Cane - Red,1]" //Apology for renumbering stuff and making ice cube therefore be empty upon updating lol
 		else; "\![bind,Object,%(CurrentItem),1]"
+		"%(s)"
 		ToMeltCase("Update complete.")
 	}
 }
