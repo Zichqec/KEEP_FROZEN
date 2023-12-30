@@ -33,12 +33,14 @@ OnInitialize
 		phasecountdown = GETSECCOUNT
 		RecentItems = IARRAY
 		LastTalk = ""
-		if !ISVAR("AutoAdjust"); AutoAdjust = 1
-		if !ISVAR("ItemsThatHaveBeenDisplayed"); ItemsThatHaveBeenDisplayed = IARRAY
-		if !ISVAR("NeedlePokes"); NeedlePokes = IARRAY
 		CurrentNeedlePokes = 0
 		CurrentRefusals = 0
 	}
+	
+	if !ISVAR("AutoAdjust"); AutoAdjust = 1
+	if !ISVAR("ItemsThatHaveBeenDisplayed"); ItemsThatHaveBeenDisplayed = IARRAY
+	if !ISVAR("NeedlePokes"); NeedlePokes = IARRAY
+	if NeedlePokes[0] == ""; NeedlePokes[0] = IARRAY //Fix because I didn't have this initialized right in v1.1.0
 }
 
 OnDestroy
@@ -293,6 +295,7 @@ On_homeurl
 
 OnNeedlePoke
 {
+	if !ISVAR("NeedlePokes"); NeedlePokes = IARRAY
 	if reference0 == 0
 	{
 		CurrentNeedlePokes++
@@ -343,5 +346,5 @@ On_getaistate
 
 ghostver
 {
-	"1.1.0"
+	"1.1.1"
 }
