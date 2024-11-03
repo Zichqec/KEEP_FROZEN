@@ -244,31 +244,67 @@ OnDisplayItem : all
 	"\![raise,OnCollectionView,%(reference2)]"
 }
 
+//Written by Zichqec https://ukagaka.zichqec.com/
+//A label generator for talk rate, so that you don't have to write each label by hand with a stack of if checks. While this is set up specifically for that, it's coded in such a way that it could be easily customized and repurposed for something else.
+//Arguments:
+//It takes a single argument, which is a positive whole number of seconds. 0, negative numbers, and strings will all return the string "Off". Real numbers will be converted to integers and lose the numbers after the decimal point. Arrays will only have their first element processed.
+//Example: TalkRateLabel(aitalkinterval)
+
+//Note that by default, the highest unit it will use is hours. I commented the higher units out to save on processing time, but they're there as example. Uncomment them if you want them. And of course, you can add any additional units you wish, as long as they are larger than seconds.
+
+//The format of the output puts a comma between each unit. If you want it to be more gramatically correct and put "and", then replace `_output != ""; _output += ", "` with the following code.
+/*
+			if _output != ""
+			{
+				if _unit[0] == "second"
+				{
+					if "," _in_ _output; _output += ","
+					_output += " and "
+				}
+				else; _output += ", "
+			}
+*/
+//I did not add this by default because it is more messy, and it makes the labels longer.
+
+TalkRateLabel
+{
+	_num = TOINT(_argv[0])
+	if _num <= 0; {"Off"; return}
+	
+	//Singular form, plural form, number of seconds
+	_units = ( /
+	"hour,hours,3600",/
+	"minute,minutes,60",/
+	"second,seconds,1"/
+	)
+	
+	_output = ""
+	foreach _units; _unit
+	{
+		_duration = TOINT(_unit[2])
+		_amt = _num / _duration
+		_num = _num % _duration
+		
+		if _amt > 0
+		{
+			if _output != ""; _output += ", "
+			_output += "%(_amt) %(_unit[_amt > 1])"
+		}
+		if _num <= 0; break
+	}
+	_output
+}
+
 OnSettings : all
 {
-	_itemsdisplayed = ARRAYSIZE(DisplayedItems) > 0
-	_balloon = "2"
-	if _itemsdisplayed && SHIORI3FW.BalloonName == "Thaw"; _balloon = 4
-	
-	_talkrate = "Off"
-	if aitalkinterval == 30; _talkrate = "30 seconds"
-	elseif aitalkinterval == 60; _talkrate = "1 minute"
-	elseif aitalkinterval == 180; _talkrate = "3 minutes"
-	elseif aitalkinterval == 300; _talkrate = "5 minutes"
-	elseif aitalkinterval == 600; _talkrate = "10 minutes"
-	
 	"\C\![lock,balloonrepaint]\c"
-	"\0\*\b[%(_balloon)]\![set,autoscroll,disable]\_q\f[anchorvisitedfontcolor,default.anchor]"
-	"\f[align,center]Settings\n\n\f[align,left]"
-	
-	"Talkrate: \_a[OnTalkRateMenu]%(_talkrate)\_a\n\n"
+	"\0\*\b[4,--fallback=2]\![set,autoscroll,disable]\_q\f[anchorvisitedfontcolor,default.anchor]"
+	"Talkrate: \_a[OnTalkRateMenu]%(TalkRateLabel(aitalkinterval))\_a\n\n"
 	"Auto adjusting balloon size: \_a[OnAutoAdjustToggle]%(('Off','On')[AutoAdjust])\_a\n\n"
-	if _itemsdisplayed
-	{
-		"\![*]\q[Reset item positions,OnResetPositions]\n"
-		"\![*]\q[Hide all items,OnHideAll]\n"
-		"\n"
-	}
+	
+	"\![*]\q[Reset item positions,OnResetPositions]\n"
+	"\![*]\q[Hide all items,OnHideAll]\n"
+	"\n"
 	
 	"\![*]\f[bold,1]\q[Reset,OnResetCheck]\f[bold,default]\n\n"
 	"\![*]\q[Back,OnMainMenu]  \![*]\q[Close,cancel]"
@@ -278,23 +314,15 @@ OnSettings : all
 
 OnTalkRateMenu : all
 {
-	_talkrate = "Off"
-	if aitalkinterval == 30; _talkrate = "30 seconds"
-	elseif aitalkinterval == 60; _talkrate = "1 minute"
-	elseif aitalkinterval == 180; _talkrate = "3 minutes"
-	elseif aitalkinterval == 300; _talkrate = "5 minutes"
-	elseif aitalkinterval == 600; _talkrate = "10 minutes"
-	
 	"\C\![lock,balloonrepaint]\c"
 	"\0\b2\![set,autoscroll,disable]\_q"
-	"Current interval: %(_talkrate)\n\n"
+	"Current interval: %(TalkRateLabel(aitalkinterval))\n\n"
 	
-	"\![*]\q[Off,OnTalkRateChange,0]\n"
-	"\![*]\q[30 seconds,OnTalkRateChange,30]\n"
-	"\![*]\q[1 minute,OnTalkRateChange,60]\n"
-	"\![*]\q[3 minutes,OnTalkRateChange,180]\n"
-	"\![*]\q[5 minutes,OnTalkRateChange,300]\n"
-	"\![*]\q[10 minutes,OnTalkRateChange,600]\n"
+	_rates = (0,30,60,180,300,600)
+	foreach _rates; _rate
+	{
+		"\![*]\q[""%(TalkRateLabel(_rate))"",OnTalkRateChange,%(_rate)]\n"
+	}
 	"\n"
 	"\![*]\q[Back,OnSettings]  \![*]\q[Close,cancel]"
 	"\![unlock,balloonrepaint]"
