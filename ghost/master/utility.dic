@@ -24,7 +24,7 @@ SaveCubeTime
 {
 	_sec = GETSECCOUNT
 	_time = _sec - cubelifestart
-	CubeLives ,= _time
+	if _time >= 0; CubeLives ,= _time
 }
 
 bullet

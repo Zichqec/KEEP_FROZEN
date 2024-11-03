@@ -344,7 +344,45 @@ On_getaistate
 	}
 }
 
+OnSpectrePlugin.ConfirmCalibration
+{
+	"\![raiseplugin,Spectre,OnCustomCalibrationConfirm,__NO_EXPRESSIONS__]"
+}
+
+OnSpectrePlugin.Possession
+{
+	if RAND(4) == 0 && meltphase < 3
+	{	
+		_script = ToMeltCase("Things That Are Cold: ")
+		for _i = 0; _i < 3; _i++
+		{
+			_script += "\w8\n%(bullet) "
+			_script += ToMeltCase(SpectreCommentPool)
+		}
+		_script += "\![is-aitalk]"
+		_script
+	}
+}
+
+SpectreCommentPool : nonoverlap
+{
+	"Being stuck between life and death"
+	"Falling into a bog hole and drowning"
+	"Being all alone as a ghost"
+	"Being a ghost and not getting to haunt anyone"
+	"Being haunted"
+	"Stealing eggs"
+	"Getting nibbled on by bugs"
+	"Getting pickled"
+	"Being left behind by the reaper"
+	"Ghosts"
+	"Possessing someone"
+	"Possessing an ice cube"
+	"Never knowing what became of your family"
+	"Petty theft"
+}
+
 ghostver
 {
-	"1.1.1"
+	"1.1.2"
 }
