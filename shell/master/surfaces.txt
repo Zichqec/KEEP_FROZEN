@@ -15,19 +15,21 @@ surface0
 	animation10101.interval,bind + talk,4
 	animation10101.pattern0,alternativestart,(10102,10103,10104)
 
+	//TODO the exclusive options here interfere with the vortex... but i can't seem to do anything about that, adding vortex to the exclusive does not help?
+	//The exclusives are doing SOMETHING though because if I comment them out, the vortex works properly but the talk frames overlap with each other
 	animation10102.interval,never
 	animation10102.pattern0,stop,10100
 	animation10102.pattern1,overlay,10101,0,0,0
 	animation10102.pattern2,overlay,10101,120,0,0
 	animation10102.pattern3,start,10100
-	animation10102.option,exclusive,(10101,10103,10104)
+	animation10102.option,exclusive,(10101,10103,10104,908)
 
 	animation10103.interval,never
 	animation10103.pattern0,stop,10100
 	animation10103.pattern1,overlay,10102,0,0,0
 	animation10103.pattern2,overlay,10102,120,0,0
 	animation10103.pattern3,start,10100
-	animation10103.option,exclusive,(10101,10102,10104)
+	animation10103.option,exclusive,(10101,10102,10104,908)
 
 	animation10104.interval,never
 	animation10104.pattern0,stop,10100
@@ -35,7 +37,7 @@ surface0
 	animation10104.pattern2,overlay,10102,120,0,0
 	animation10104.pattern3,overlay,10102,120,0,0
 	animation10104.pattern4,start,10100
-	animation10104.option,exclusive,(10101,10102,10103)
+	animation10104.option,exclusive,(10101,10102,10103,908)
 }
 
 surface1
@@ -145,8 +147,11 @@ surface.append0-3
 	animation106.interval,bind
 	animation106.pattern0,overlay,106,0,0,0
 	
+	animation107.interval,bind
+	animation107.pattern0,overlay,107,0,0,0
 	
-	//Marbles
+	
+	//Marble
 	animation200.interval,bind
 	animation200.pattern0,overlay,200,0,0,0
 	
@@ -211,6 +216,30 @@ surface.append0-3
 	animation407.interval,bind
 	animation407.pattern0,overlay,407,0,0,0
 	
+	animation408.interval,bind
+	animation408.pattern0,overlay,408,0,0,0
+	
+	animation409.interval,bind
+	animation409.pattern0,overlay,409,0,0,0
+	
+	animation410.interval,bind
+	animation410.pattern0,overlay,410,0,0,0
+	
+	animation411.interval,bind
+	animation411.pattern0,overlay,411,0,0,0
+	
+	animation412.interval,bind
+	animation412.pattern0,overlay,412,0,0,0
+	
+	animation413.interval,bind
+	animation413.pattern0,overlay,413,0,0,0
+	
+	animation414.interval,bind
+	animation414.pattern0,overlay,414,0,0,0
+	
+	animation415.interval,bind
+	animation415.pattern0,overlay,415,0,0,0
+	
 	
 	//Bugs
 	animation500.interval,bind
@@ -259,6 +288,78 @@ surface.append0-3
 	
 	animation604.interval,bind
 	animation604.pattern0,overlay,604,0,0,0
+	
+	animation605.interval,bind
+	animation605.pattern0,overlay,605,0,0,0
+	
+	animation606.interval,bind
+	animation606.pattern0,overlay,606,0,0,0
+	
+	
+	//Deco
+	animation700.interval,bind
+	animation700.pattern0,overlay,700,0,0,0
+	
+	animation701.interval,bind
+	animation701.pattern0,overlay,701,0,0,0
+	
+	animation702.interval,bind
+	animation702.pattern0,overlay,702,0,0,0
+	
+	animation703.interval,bind
+	animation703.pattern0,overlay,703,0,0,0
+	
+	
+	//Flower
+	animation800.interval,bind
+	animation800.pattern0,overlay,800,0,0,0
+	
+	animation801.interval,bind
+	animation801.pattern0,overlay,801,0,0,0
+	
+	animation802.interval,bind
+	animation802.pattern0,overlay,802,0,0,0
+	
+	animation803.interval,bind
+	animation803.pattern0,overlay,803,0,0,0
+	
+	animation804.interval,bind
+	animation804.pattern0,overlay,804,0,0,0
+	
+	animation805.interval,bind
+	animation805.pattern0,overlay,805,0,0,0
+	
+	animation806.interval,bind
+	animation806.pattern0,overlay,806,0,0,0
+	
+	
+	//Celestial
+	animation900.interval,bind
+	animation900.pattern0,overlay,900,0,0,0
+	
+	animation901.interval,bind
+	animation901.pattern0,overlay,901,0,0,0
+	
+	animation902.interval,bind
+	animation902.pattern0,overlay,902,0,0,0
+	
+	animation903.interval,bind
+	animation903.pattern0,overlay,903,0,0,0
+	
+	animation904.interval,bind
+	animation904.pattern0,overlay,904,0,0,0
+	
+	animation908.interval,bind + always
+	animation908.pattern0,overlay,90800,0,0,0
+	animation908.pattern1,overlay,90801,100,0,0
+	animation908.pattern2,overlay,90802,100,0,0
+	animation908.pattern3,overlay,90803,100,0,0
+	animation908.pattern4,overlay,90804,100,0,0
+	animation908.pattern5,overlay,90805,100,0,0
+	animation908.pattern6,overlay,90806,100,0,0
+	animation908.pattern7,overlay,90807,100,0,0
+	animation908.pattern8,overlay,90808,100,0,0
+	animation908.pattern9,overlay,90808,100,0,0
 	
 	
 	//Candle flames
@@ -323,6 +424,7 @@ surface.append0-3
 	animation40301.pattern2,overlay,-1,75,0,0
 }
 
+//TODO do these need? to be defined above and below??? I'm thinking maybe there was some kind of odd behavior but i don't have time to investigate for now...
 surface400
 {
 	animation40000.interval,always
@@ -393,4 +495,21 @@ surface403
 	animation40301.pattern0,replace,40005,0,145,81
 	animation40301.pattern1,replace,40006,75,145,81
 	animation40301.pattern2,overlay,-1,75,0,0
+}
+
+surface908
+{
+	element0,overlay,surface90800.png,0,0
+	
+	animation908.interval,always
+	animation908.pattern0,replace,90800,0,0,0
+	animation908.pattern1,replace,90801,100,0,0
+	animation908.pattern2,replace,90802,100,0,0
+	animation908.pattern3,replace,90803,100,0,0
+	animation908.pattern4,replace,90804,100,0,0
+	animation908.pattern5,replace,90805,100,0,0
+	animation908.pattern6,replace,90806,100,0,0
+	animation908.pattern7,replace,90807,100,0,0
+	animation908.pattern8,replace,90808,100,0,0
+	animation908.pattern9,replace,90808,100,0,0
 }
