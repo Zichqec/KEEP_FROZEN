@@ -1,4 +1,3 @@
-shell\master\surface107.png
 shell\master\surface108.png
 shell\master\surface110.png
 shell\master\surface111.png
