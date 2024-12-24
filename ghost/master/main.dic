@@ -349,6 +349,12 @@ OnSpectrePlugin.ConfirmCalibration
 	"\![raiseplugin,Spectre,OnCustomCalibrationConfirm,__NO_EXPRESSIONS__]"
 }
 
+//Currently unused but I might update Spectre...
+OnSpectrePlugin.Surface
+{
+	s
+}
+
 OnSpectrePlugin.Possession
 {
 	if RAND(4) == 0 && meltphase < 3
