@@ -14,22 +14,20 @@ surface0
 	
 	animation10101.interval,bind + talk,4
 	animation10101.pattern0,alternativestart,(10102,10103,10104)
-
-	//TODO the exclusive options here interfere with the vortex... but i can't seem to do anything about that, adding vortex to the exclusive does not help?
-	//The exclusives are doing SOMETHING though because if I comment them out, the vortex works properly but the talk frames overlap with each other
+	
 	animation10102.interval,never
 	animation10102.pattern0,stop,10100
 	animation10102.pattern1,overlay,10101,0,0,0
 	animation10102.pattern2,overlay,10101,120,0,0
 	animation10102.pattern3,start,10100
-	animation10102.option,exclusive,(10101,10103,10104,908)
+	animation10102.option,exclusive,(10101,10103,10104)
 
 	animation10103.interval,never
 	animation10103.pattern0,stop,10100
 	animation10103.pattern1,overlay,10102,0,0,0
 	animation10103.pattern2,overlay,10102,120,0,0
 	animation10103.pattern3,start,10100
-	animation10103.option,exclusive,(10101,10102,10104,908)
+	animation10103.option,exclusive,(10101,10102,10104)
 
 	animation10104.interval,never
 	animation10104.pattern0,stop,10100
@@ -37,7 +35,7 @@ surface0
 	animation10104.pattern2,overlay,10102,120,0,0
 	animation10104.pattern3,overlay,10102,120,0,0
 	animation10104.pattern4,start,10100
-	animation10104.option,exclusive,(10101,10102,10103,908)
+	animation10104.option,exclusive,(10101,10102,10103)
 }
 
 surface1
