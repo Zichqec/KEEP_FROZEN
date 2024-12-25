@@ -17,10 +17,11 @@ sakura.bindgroup10100.addid,10101
 sakura.bindgroup100.name,Object,Skull
 sakura.bindgroup101.name,Object,Key
 sakura.bindgroup102.name,Object,d20
-sakura.bindgroup103.name,Object,Ice Cube
+sakura.bindgroup103.name,Object,Paper Towels
 sakura.bindgroup104.name,Object,Water
 sakura.bindgroup105.name,Object,Plush
 sakura.bindgroup106.name,Object,Bow and Bell
+sakura.bindgroup107.name,Object,Traffic Cone
 
 sakura.bindgroup200.name,Object,Sea Turtle
 sakura.bindgroup201.name,Object,Sea Purple
@@ -54,6 +55,16 @@ sakura.bindgroup405.name,Object,Straw - Blue
 sakura.bindgroup406.name,Object,Straw - Green
 sakura.bindgroup407.name,Object,Straw - Yellow
 
+sakura.bindgroup408.name,Object,Knife - Red
+sakura.bindgroup409.name,Object,Knife - Blue
+sakura.bindgroup410.name,Object,Knife - Purple
+sakura.bindgroup411.name,Object,Knife - Black
+
+sakura.bindgroup412.name,Object,Ring - Gold
+sakura.bindgroup413.name,Object,Ring - Silver
+sakura.bindgroup414.name,Object,Ring - Bronze
+sakura.bindgroup415.name,Object,Ring - Black
+
 sakura.bindgroup500.name,Object,Beetle - Green
 sakura.bindgroup501.name,Object,Beetle - Pink
 sakura.bindgroup502.name,Object,Beetle - Brown
@@ -70,5 +81,28 @@ sakura.bindgroup601.name,Object,Candy Cane - Green
 sakura.bindgroup602.name,Object,Candy Cane - Red & Green
 sakura.bindgroup603.name,Object,Snowflake
 sakura.bindgroup604.name,Object,Coal
+sakura.bindgroup605.name,Object,Ice Cube
+sakura.bindgroup606.name,Object,Popsicle Stick
+
+sakura.bindgroup700.name,Object,Vase - Blue
+sakura.bindgroup701.name,Object,Vase - Red
+sakura.bindgroup702.name,Object,Vase - Green
+sakura.bindgroup703.name,Object,Vase - Gold
+
+sakura.bindgroup800.name,Object,Poinsettia - Red
+sakura.bindgroup801.name,Object,Poinsettia - Pink
+sakura.bindgroup802.name,Object,Poinsettia - White
+sakura.bindgroup803.name,Object,Tulip - Orange
+sakura.bindgroup804.name,Object,Tulip - Purple
+sakura.bindgroup805.name,Object,Tulip - Sea
+sakura.bindgroup806.name,Object,Tulip - Butter
+
+sakura.bindgroup900.name,Object,Nebula - Red & Yellow
+sakura.bindgroup901.name,Object,Nebula - Green & Cyan
+sakura.bindgroup902.name,Object,Nebula - Blue & Purple
+sakura.bindgroup903.name,Object,Nebula - Prismatic
+sakura.bindgroup904.name,Object,Galaxy - C
+
+sakura.bindgroup908.name,Object,Vortex
 
 sakura.menuitem0,10100

@@ -1,19 +1,21 @@
 ItemDisplayInfo : array
 {
 	//Category,Item,Surface #
+	//Don't stress about moving stuff! Items are saved by NAME ONLY, the only other effect is that they might change positions on screen, but that's no big deal.:Ov	y
 	
 	"Misc,Skull,100"
 	"Misc,Key,101"
 	"Misc,d20,102"
-	"Misc,Ice Cube,103"
+	"Misc,Paper Towels,103"
 	"Misc,Water,104"
 	"Misc,Plush,105"
 	"Misc,Bow and Bell,106"
+	"Misc,Traffic Cone,107"
 	
-	"Marbles,Sea Turtle,200"
-	"Marbles,Sea Purple,201"
-	"Marbles,Unicorn,202"
-	"Marbles,The Moon,203"
+	"Marble,Sea Turtle,200"
+	"Marble,Sea Purple,201"
+	"Marble,Unicorn,202"
+	"Marble,The Moon,203"
 	
 	"Fruit,Cherries,300"
 	"Fruit,Banana,301"
@@ -32,6 +34,14 @@ ItemDisplayInfo : array
 	"Accessory,Straw - Blue,405"
 	"Accessory,Straw - Green,406"
 	"Accessory,Straw - Yellow,407"
+	"Accessory,Knife - Red,408"
+	"Accessory,Knife - Blue,409"
+	"Accessory,Knife - Purple,410"
+	"Accessory,Knife - Black,411"
+	"Accessory,Ring - Gold,412"
+	"Accessory,Ring - Silver,413"
+	"Accessory,Ring - Bronze,414"
+	"Accessory,Ring - Black,415"
 	
 	"Bug,Beetle - Green,500"
 	"Bug,Beetle - Pink,501"
@@ -49,4 +59,26 @@ ItemDisplayInfo : array
 	"Cold,Candy Cane - Red & Green,602"
 	"Cold,Snowflake,603"
 	"Cold,Coal,604"
+	"Misc,Ice Cube,605"
+	"Cold,Popsicle Stick,606"
+	
+	"Deco,Vase - Blue,700"
+	"Deco,Vase - Red,701"
+	"Deco,Vase - Green,702"
+	"Deco,Vase - Gold,703"
+	
+	"Flower,Poinsettia - Red,800"
+	"Flower,Poinsettia - Pink,801"
+	"Flower,Poinsettia - White,802"
+	"Flower,Tulip - Orange,803"
+	"Flower,Tulip - Purple,804"
+	"Flower,Tulip - Sea,805"
+	"Flower,Tulip - Butter,806"
+	
+	"Celestial,Nebula - Red & Yellow,900"
+	"Celestial,Nebula - Green & Cyan,901"
+	"Celestial,Nebula - Blue & Purple,902"
+	"Celestial,Nebula - Prismatic,903"
+	"Celestial,Galaxy - C,904"
+	"Celestial,Vortex,908"
 }

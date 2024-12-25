@@ -94,7 +94,7 @@ OnUpdateFailure //If the update fails
 	{
 		_file = SPLITPATH(reference1)[2] + SPLITPATH(reference1)[3] //This gets the name and extension of the offending file
 		
-		ToMeltCase("The MD5 Values Don't Match.\w8 Contact The Ghost Author And Let Them Know That '%(_File)' Is Giving An MD5 Error.")
+		ToMeltCase("The MD5 Values Don't Match.") + "\w8" +  ToMeltCase(" Contact The Ghost Author And Let Them Know That '%(_file)' Is Giving An MD5 Error.")
 	}
 	elseif reference0 == "artificial" //If the user cancels the update by double clicking the balloon
 	{
