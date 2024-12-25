@@ -30,10 +30,8 @@ OnInstallComplete.Action
 
 //—————————————————————————————— Creating a .nar file ——————————————————————————————
 OnNarCreated
-{
-	_nar = "\_a[OnNarLocation,""%(reference1)""]%(reference0)\_a" //Makes a clickable link that'll open the location of the file they just made
-	
-	"\0%(s)" + ToMeltCase("Successfully Created ") + "%(ToMeltCase(_nar))."
+{	
+	"\0%(s)" + ToMeltCase("Successfully Created ") + "\_a[OnNarLocation,""%(reference1)""]%(ToMeltCase(reference0)).\_a"
 }
 
 OnNarLocation
