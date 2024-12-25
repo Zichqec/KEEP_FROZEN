@@ -1,7 +1,7 @@
 ItemDisplayInfo : array
 {
 	//Category,Item,Surface #
-	//Don't stress about moving stuff! Items are saved by NAME ONLY, the only other effect is that they might change positions on screen, but that's no big deal.:Ov	y
+	//Don't stress about moving stuff! Items are saved by NAME ONLY, the only other effect is that they might change positions on screen, but that's no big deal.
 	
 	"Misc,Skull,100"
 	"Misc,Key,101"
