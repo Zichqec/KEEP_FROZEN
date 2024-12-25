@@ -260,6 +260,78 @@ surface.append0-3
 	animation604.interval,bind
 	animation604.pattern0,overlay,604,0,0,0
 	
+	animation605.interval,bind
+	animation605.pattern0,overlay,605,0,0,0
+	
+	animation606.interval,bind
+	animation606.pattern0,overlay,606,0,0,0
+	
+	
+	//Deco
+	animation700.interval,bind
+	animation700.pattern0,overlay,700,0,0,0
+	
+	animation701.interval,bind
+	animation701.pattern0,overlay,701,0,0,0
+	
+	animation702.interval,bind
+	animation702.pattern0,overlay,702,0,0,0
+	
+	animation703.interval,bind
+	animation703.pattern0,overlay,703,0,0,0
+	
+	
+	//Flower
+	animation800.interval,bind
+	animation800.pattern0,overlay,800,0,0,0
+	
+	animation801.interval,bind
+	animation801.pattern0,overlay,801,0,0,0
+	
+	animation802.interval,bind
+	animation802.pattern0,overlay,802,0,0,0
+	
+	animation803.interval,bind
+	animation803.pattern0,overlay,803,0,0,0
+	
+	animation804.interval,bind
+	animation804.pattern0,overlay,804,0,0,0
+	
+	animation805.interval,bind
+	animation805.pattern0,overlay,805,0,0,0
+	
+	animation806.interval,bind
+	animation806.pattern0,overlay,806,0,0,0
+	
+	
+	//Celestial
+	animation900.interval,bind
+	animation900.pattern0,overlay,900,0,0,0
+	
+	animation901.interval,bind
+	animation901.pattern0,overlay,901,0,0,0
+	
+	animation902.interval,bind
+	animation902.pattern0,overlay,902,0,0,0
+	
+	animation903.interval,bind
+	animation903.pattern0,overlay,903,0,0,0
+	
+	animation904.interval,bind
+	animation904.pattern0,overlay,904,0,0,0
+	
+	animation908.interval,bind + always
+	animation908.pattern0,overlay,90800,0,0,0
+	animation908.pattern1,overlay,90801,100,0,0
+	animation908.pattern2,overlay,90802,100,0,0
+	animation908.pattern3,overlay,90803,100,0,0
+	animation908.pattern4,overlay,90804,100,0,0
+	animation908.pattern5,overlay,90805,100,0,0
+	animation908.pattern6,overlay,90806,100,0,0
+	animation908.pattern7,overlay,90807,100,0,0
+	animation908.pattern8,overlay,90808,100,0,0
+	animation908.pattern9,overlay,90808,100,0,0
+	animation908.option,shared-index
 	
 	//Candle flames
 	animation40000.interval,bind + always
@@ -271,11 +343,13 @@ surface.append0-3
 	animation40000.pattern5,overlay,40003,90-120,0,0
 	animation40000.pattern6,overlay,40002,90-120,0,0
 	animation40000.pattern7,overlay,40001,90-120,0,0
+	animation40000.option,shared-index
 	
 	animation40001.interval,bind + random,6
 	animation40001.pattern0,replace,40005,0,145,81
 	animation40001.pattern1,replace,40006,75,145,81
 	animation40001.pattern2,overlay,-1,75,0,0
+	animation40001.option,shared-index
 	
 	animation40100.interval,bind + always
 	animation40100.pattern0,overlay,40000,0,0,0
@@ -286,11 +360,13 @@ surface.append0-3
 	animation40100.pattern5,overlay,40003,90-120,0,0
 	animation40100.pattern6,overlay,40002,90-120,0,0
 	animation40100.pattern7,overlay,40001,90-120,0,0
+	animation40100.option,shared-index
 	
 	animation40101.interval,bind + random,6
 	animation40101.pattern0,replace,40005,0,145,81
 	animation40101.pattern1,replace,40006,75,145,81
 	animation40101.pattern2,overlay,-1,75,0,0
+	animation40101.option,shared-index
 	
 	animation40200.interval,bind + always
 	animation40200.pattern0,overlay,40000,0,0,0
@@ -301,11 +377,13 @@ surface.append0-3
 	animation40200.pattern5,overlay,40003,90-120,0,0
 	animation40200.pattern6,overlay,40002,90-120,0,0
 	animation40200.pattern7,overlay,40001,90-120,0,0
+	animation40200.option,shared-index
 	
 	animation40201.interval,bind + random,6
 	animation40201.pattern0,replace,40005,0,145,81
 	animation40201.pattern1,replace,40006,75,145,81
 	animation40201.pattern2,overlay,-1,75,0,0
+	animation40201.option,shared-index
 	
 	animation40300.interval,bind + always
 	animation40300.pattern0,overlay,40000,0,0,0
@@ -316,11 +394,13 @@ surface.append0-3
 	animation40300.pattern5,overlay,40003,90-120,0,0
 	animation40300.pattern6,overlay,40002,90-120,0,0
 	animation40300.pattern7,overlay,40001,90-120,0,0
+	animation40300.option,shared-index
 	
 	animation40301.interval,bind + random,6
 	animation40301.pattern0,replace,40005,0,145,81
 	animation40301.pattern1,replace,40006,75,145,81
 	animation40301.pattern2,overlay,-1,75,0,0
+	animation40301.option,shared-index
 }
 
 surface400
@@ -334,11 +414,13 @@ surface400
 	animation40000.pattern5,overlay,40003,90-120,0,0
 	animation40000.pattern6,overlay,40002,90-120,0,0
 	animation40000.pattern7,overlay,40001,90-120,0,0
+	animation40000.option,shared-index
 	
 	animation40001.interval,random,6
 	animation40001.pattern0,replace,40005,0,145,81
 	animation40001.pattern1,replace,40006,75,145,81
 	animation40001.pattern2,overlay,-1,75,0,0
+	animation40001.option,shared-index
 }
 
 surface401
@@ -352,11 +434,13 @@ surface401
 	animation40100.pattern5,overlay,40003,90-120,0,0
 	animation40100.pattern6,overlay,40002,90-120,0,0
 	animation40100.pattern7,overlay,40001,90-120,0,0
+	animation40100.option,shared-index
 	
 	animation40101.interval,random,6
 	animation40101.pattern0,replace,40005,0,145,81
 	animation40101.pattern1,replace,40006,75,145,81
 	animation40101.pattern2,overlay,-1,75,0,0
+	animation40101.option,shared-index
 }
 
 surface402
@@ -370,11 +454,13 @@ surface402
 	animation40200.pattern5,overlay,40003,90-120,0,0
 	animation40200.pattern6,overlay,40002,90-120,0,0
 	animation40200.pattern7,overlay,40001,90-120,0,0
+	animation40200.option,shared-index
 	
 	animation40201.interval,random,6
 	animation40201.pattern0,replace,40005,0,145,81
 	animation40201.pattern1,replace,40006,75,145,81
 	animation40201.pattern2,overlay,-1,75,0,0
+	animation40201.option,shared-index
 }
 
 surface403
@@ -388,9 +474,29 @@ surface403
 	animation40300.pattern5,overlay,40003,90-120,0,0
 	animation40300.pattern6,overlay,40002,90-120,0,0
 	animation40300.pattern7,overlay,40001,90-120,0,0
+	animation40300.option,shared-index
 	
 	animation40301.interval,random,6
 	animation40301.pattern0,replace,40005,0,145,81
 	animation40301.pattern1,replace,40006,75,145,81
 	animation40301.pattern2,overlay,-1,75,0,0
+	animation40301.option,shared-index
+}
+
+surface908
+{
+	element0,overlay,surface90800.png,0,0
+	
+	animation908.interval,always
+	animation908.pattern0,replace,90800,0,0,0
+	animation908.pattern1,replace,90801,100,0,0
+	animation908.pattern2,replace,90802,100,0,0
+	animation908.pattern3,replace,90803,100,0,0
+	animation908.pattern4,replace,90804,100,0,0
+	animation908.pattern5,replace,90805,100,0,0
+	animation908.pattern6,replace,90806,100,0,0
+	animation908.pattern7,replace,90807,100,0,0
+	animation908.pattern8,replace,90808,100,0,0
+	animation908.pattern9,replace,90808,100,0,0
+	animation908.option,shared-index
 }
