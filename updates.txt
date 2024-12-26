@@ -5,7 +5,7 @@ file,ghost/master/descript.txt594ec26e4f3b49123c6be12f811f6b1fsize=326date=20
 file,ghost/master/icon.icob5d6e05825e5051e1e600e68204f735fsize=101608date=2023-04-29T23:38:28
 file,ghost/master/icon.pngda4cb91853d135662c56802a83410546size=1004date=2023-04-29T23:38:20
 file,ghost/master/item_index.dic4685d228d8f06dc1368c36ccc81a8ba8size=2201date=2024-12-26T12:05:53
-file,ghost/master/main.dic6aca5ffb969621f8a0ecc7c18a8de0d3size=8786date=2024-12-26T12:13:43
+file,ghost/master/main.dicfd4158e58676cda745013389b25357aasize=8812date=2024-12-26T12:17:37
 file,ghost/master/menu.dic397d619017c06a6e77359df3325d5748size=9813date=2024-03-09T16:44:52
 file,ghost/master/meta.dic1f2ae0e62bf430262c7c866187bd68c0size=4604date=2024-12-26T12:05:46
 file,ghost/master/randomtalk.dic25db8712c33861de9efb31315b5d5dadsize=16501date=2024-12-24T11:02:50

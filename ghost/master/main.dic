@@ -401,6 +401,7 @@ GiveAllItems
 				_item = ItemsCollected[_i]
 				if _item[0] == _listitem[1]
 				{
+					AddToCollection(_i)
 					_found = 1
 					break
 				}
