@@ -388,6 +388,32 @@ SpectreCommentPool : nonoverlap
 	"Petty theft"
 }
 
+//for debug purposes... because i keep messing this up lol. SHOULD give 1 of any items that have not yet been collected, in theory
+GiveAllItems
+{
+	if SHIORI3FW.DebugMode
+	{
+		foreach ItemDisplayInfo; _item
+		{
+			_found = 0
+			for _i = 0; _i < ARRAYSIZE(ItemsCollected); _i++
+			{
+				if _item[1] == CurrentItem
+				{
+					_found = 1
+					break
+				}
+			}
+			
+			//Initialize if not found
+			if _found == 0
+			{
+				ItemsCollected ,= "%(_item[1]),1"
+			}
+		}
+	}
+}
+
 ghostver
 {
 	"1.1.5"
