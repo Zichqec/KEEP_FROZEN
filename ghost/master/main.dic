@@ -393,12 +393,13 @@ GiveAllItems
 {
 	if SHIORI3FW.DebugMode
 	{
-		foreach ItemDisplayInfo; _item
+		foreach ItemDisplayInfo; _listitem
 		{
 			_found = 0
 			for _i = 0; _i < ARRAYSIZE(ItemsCollected); _i++
 			{
-				if _item[1] == CurrentItem
+				_item = ItemsCollected[_i]
+				if _item[0] == _listitem[1]
 				{
 					_found = 1
 					break
