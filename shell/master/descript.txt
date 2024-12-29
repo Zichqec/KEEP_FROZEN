@@ -98,8 +98,8 @@ sakura.bindgroup805.name,Object,Tulip - Sea
 sakura.bindgroup806.name,Object,Tulip - Butter
 
 sakura.bindgroup900.name,Object,Nebula - Red & Yellow
-sakura.bindgroup901.name,Object,Nebula - Green & Cyan
-sakura.bindgroup902.name,Object,Nebula - Blue & Purple
+sakura.bindgroup901.name,Object,Nebula - Blue & Purple
+sakura.bindgroup902.name,Object,Nebula - Green & Cyan
 sakura.bindgroup903.name,Object,Nebula - Prismatic
 sakura.bindgroup904.name,Object,Galaxy - C
 
