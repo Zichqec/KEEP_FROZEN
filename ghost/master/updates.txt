@@ -5,7 +5,7 @@ file,ghost/master/descript.txt594ec26e4f3b49123c6be12f811f6b1fsize=326date=20
 file,ghost/master/icon.icob5d6e05825e5051e1e600e68204f735fsize=101608date=2023-04-29T23:38:28
 file,ghost/master/icon.pngda4cb91853d135662c56802a83410546size=1004date=2023-04-29T23:38:20
 file,ghost/master/item_index.dic4685d228d8f06dc1368c36ccc81a8ba8size=2201date=2024-12-26T12:05:53
-file,ghost/master/main.dicfd4158e58676cda745013389b25357aasize=8812date=2024-12-26T12:17:37
+file,ghost/master/main.dic587de64cfa43a563485d0bcd125ef9aesize=8812date=2024-12-29T04:03:31
 file,ghost/master/menu.dic397d619017c06a6e77359df3325d5748size=9813date=2024-03-09T16:44:52
 file,ghost/master/meta.dic1f2ae0e62bf430262c7c866187bd68c0size=4604date=2024-12-26T12:05:46
 file,ghost/master/randomtalk.dic25db8712c33861de9efb31315b5d5dadsize=16501date=2024-12-24T11:02:50
@@ -20,7 +20,7 @@ file,ghost/master/yaya_base/shiori3.dicb7d25f9e32af91059ff5ba7a2b29c484size=55
 file,ghost/master/yaya_emerg.txtf3bc23b974df0b58a3a95c213c7616ddsize=589date=2023-04-28T16:44:42
 file,install.txt345f2b7de49dc46dddcf4243f740712bsize=100date=2023-05-01T01:15:36
 file,readme.txt20b2c2dcbbed824efc4b23ee8000cfdfsize=487date=2023-05-26T22:27:06
-file,shell/master/descript.txtaa9af27d5cf2f0b2d40698c846d36d77size=3858date=2024-12-24T11:02:50
+file,shell/master/descript.txt6d68ffd6e683f4d063b9af1174672077size=3858date=2024-12-28T09:03:13
 file,shell/master/surface0.apngef58c552a70c07c6954f612a8725df5bsize=3653date=2023-05-26T15:10:03
 file,shell/master/surface0.pngde215a28e414b021df2f3bc5f47b9857size=3605date=2023-04-18T14:15:38
 file,shell/master/surface1.pngabb195cd8e0643ec6067d548e90535afsize=2989date=2023-04-18T14:16:32
